@@ -1,0 +1,133 @@
+"** UltiSnips
+let g:UltiSnipsEditSplit = 'vertical'
+
+"** EasyMotion
+nmap <space> <Plug>(easymotion-s)
+
+let g:neosnippet#disable_runtime_snippets = {
+            \   'c' : 1, 'cpp' : 1,
+            \}
+
+"** GitGutter błąd
+let g:gitgutter_realtime = 0
+
+"** Syntastic
+"dodatkowe sciezki bibliotek dla syntastic
+let g:syntastic_c_include_dirs = ['/home/pawel/.local/include/']
+let g:syntastic_cpp_include_dirs = ['/home/pawel/.local/include/']
+
+"nie interesuja mnie bledy includowanych plików
+"let g:syntastic_c_remove_include_errors = 1
+"let g:syntastic_cpp_remove_include_errors = 1
+"nazwy zewnetrznych plikow conf syntastic
+let g:syntastic_c_config_file = '.syntastic_c_config'
+let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+
+let g:syntastic_haskell_ghc_mod_args="-g -fno-warn-type-defaults -g -fno-warn-unused-binds"
+
+"syntastich chercker for tex
+let g:syntastic_tex_checkers=['chktex']
+
+let g:syntastic_python_checkers=['pyflakes']
+
+"** haskellmode, haddock browser
+let g:haddock_browser = "/usr/bin/chromium"
+
+"** haskell -> cumino
+let g:cumino_default_terminal = "/usr/bin/guake --new-tab=cumino"
+
+"** ghcmod bez tych warningow w quickfixie i syntastic z boku >>
+let g:ghcmod_ghc_options = ["-fno-warn-type-defaults", "-fno-warn-unused-binds"]
+"let g:ghcmod_hlint_options = ["-fno-warn-type-defaults"]
+
+"** LaTeX suite
+let g:tex_flavor = 'latex'
+
+"no whitespace errors in tex files
+"autocmd FileType * unlet! g:airline#extensions#whitespace#checks
+"autocmd FileType tex let g:airline#extensions#whitespace#checks = [ 'indent' ]
+"
+"airline -> no bufferline on statusline (unclear, and problems with tagbar)
+let g:airline#extensions#bufferline#enabled = 0
+
+let g:bufferline_fixed_index =  0 "always first
+
+"** clang complete
+"nie wstawiaj pierwszego
+"let g:clang_complete_auto = 0
+"let g:clang_snippets = 1
+"let g:clang_snippets_engine = 'clang_complete'
+
+
+"let g:Doxy_DoxygenExecutalbe = 'doxygen'
+
+" Dispatch
+map <F8> :wa <bar> :Make<CR>
+map <F9> :wa <bar> :Dispatch<CR>
+map <F10> :Start<CR>
+
+" YCM
+map <F5> :wa <bar> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"python-mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"c++11 highligh
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+"Doxygen functions
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+
+"a.vim switch header <-> code file c, c++
+Plugin 'vim-scripts/a.vim'
+
+"doxygen-support - doxygen templates - TODO podaje zle sciezki
+"Plugin 'vim-scripts/doxygen-support.vim'
+
+"tex support
+"Plugin 'jcf/vim-latex'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+
+"usefull mappings (quickfix, buffers, itp...)
+Plugin 'tpope/vim-unimpaired'
+
+" Exchange plugin
+Plugin 'tommcdo/vim-exchange'
+
+" Quickfix do
+Plugin 'Peeja/vim-cdo'
+
+" star search '*' for visual selection
+Plugin 'bronson/vim-visual-star-search'
+
+" async make - compilation
+Plugin 'tpope/vim-dispatch'
+
+" silver searcher
+Plugin 'rking/ag.vim'
+
+" pomocne operacje na plikach del, rename i od razu na buforach
+Plugin 'tpope/vim-eunuch'
+
+" edycja i skakanie w insert i command mode
+Plugin 'tpope/vim-rsi'
+
+" Conque GDN
+Plugin 'vim-scripts/Conque-GDB'
+
+" better autoclose
+Plugin 'Raimondi/delimitMate'
+
+" tools for xolox plygins
+Plugin 'xolox/vim-misc'
+
+" session on steroids
+Plugin 'xolox/vim-session'
+
+" Ampl mode
+"Plugin 'dpo/ampl-mode'
+" Cmake support
+"Plugin 'jalcine/cmake.vim' TODO niestety ale kiepsko jeszcze dziala (z YCM)

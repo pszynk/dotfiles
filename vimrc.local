@@ -1,0 +1,172 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Vim Behavior
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" change world (cw) z dolarem na koncu
+set cpoptions+=w
+set cpoptions+=$
+" vimdiff be vertical!
+set diffopt+=vertical
+
+" substitute for whole line
+set gdefault
+
+set fileencodings=utf8
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 SPF13 Behavior
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" no fast sabs with S-H i S-M let g:spf13_no_fastTabs = 1
+let g:spf13_no_fastTabs = 1
+
+
+let g:airline#extensions#tabline#enabled = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map ; :
+nnoremap ;; ;
+inoremap fd <Esc>
+vnoremap fd <Esc>
+
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+noremap <F1> <ESC>
+
+" zamień wiele kolejnych pustych linii na jedną pustą
+nmap <silent> <leader>ml :g/^\_$\n\_^$/d<CR>
+
+
+" zmiana z F12 na F2
+set pastetoggle=<F7>           " pastetoggle (sane indentation on pastes)
+"set pastetoggle&
+
+" usuwanie koncowych spacji
+nmap <silent> <Leader>tw :call StripTrailingWhitespace()<CR>
+
+"przelaczanie miedzy plikami :b#
+nmap <silent> <Tab> :b#<CR>
+
+
+"edytuj vimrc.local
+nmap <silent> <Leader>ll :edit ~/.vimrc.local<CR>
+nmap <silent> <Leader>lg :edit ~/.gvimrc.local<CR>
+nmap <silent> <Leader>lb :edit ~/.vimrc.bundles.local<CR>
+
+
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Appearance
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" highlight the 80th column
+" In Vim >= 7.3, also highlight columns 120+
+if exists('+colorcolumn')
+  " (I picked 120-320 because you have to provide an upper bound and 500 seems
+  " to be enough.)
+  let &colorcolumn="80,".join(range(120,500),",")
+else
+  " fallback for Vim < v7.3
+  autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Autocmds
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Automatically open, but do not go to (if there are errors) the quickfix /
+" location list window, or close it when is has become empty.
+"
+" Note: Must allow nesting of autocmds to enable any customizations for quickfix
+" buffers.
+" Note: Normally, :cwindow jumps to the quickfix window if the command opens it
+" (but not if it's already open). However, as part of the autocmd, this doesn't
+" seem to happen.
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+autocmd FileType qf setlocal wrap linebreak
+
+" default for *.md is modula2 (never gonna use it)
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" airline - restore (views) workaround
+" Airline + Restore View workaround for spf13/spf13-vim#423 issue {
+  "au VimEnter * AirlineToggle
+  "au VimEnter * AirlineToggle
+  "autocmd User AirlineAfterInit call AirlineInit()
+" }
+
+" save on lose focus
+"au FocusLost * :wa
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 File specyfic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set cino+=g0
+
+autocmd FileType c,cpp setlocal foldmethod=marker | setlocal commentstring=\/\/\ %s
+
+" HASKELL
+autocmd Filetype haskell call SetHaskellOptions()
+
+" TEX
+autocmd Filetype tex call SetTexOptions()
+
+
+function! SetHaskellOptions()
+    " rozwijaj conceal w danej linii
+    setlocal cocu=c
+endfunction
+
+function! SetTexOptions()
+
+    " rozwijaj conceal w danej linii
+    setlocal cocu=c
+    " lepiej widać znaki w tex
+    setlocal listchars=nbsp:¬,eol:¶,tab:›\ ,extends:»,precedes:«,trail:•
+    " grep dla latexsuite
+    setlocal grepprg=grep\ -nH\ $*
+    " indent 2
+    setlocal sw=2
+    " dopelnianie po :
+    setlocal iskeyword+=:
+    " nie sprawdzaj pisowni w komentarzach
+    let g:tex_comment_nospell=1
+    "if utils#enabledPlugin('vim-latex') >= 0
+        " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+        " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+        " The following changes the default filetype back to 'tex':
+        "let g:tex_flavor = 'latex'
+
+        " manually load
+        "call utils#loadPlugin('vim-latex')
+    "endif
+
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" syntastic {
+" Warning 1: Command terminated with space
+" Warning 6: No italic correction (`\/') found
+" Warning 8: Wrong length of dash
+" Warning 11: ... should be \ldots
+let g:syntastic_tex_chktex_args = "-n1 -n6 -n8"
+" }
+
+" LaTeX-Box {
+let g:LatexBox_latexmk_preview_continuously = 1
+let g:LatexBox_quickfix = 1
+
+" }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 UnBundles
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+UnBundle 'spf13/vim-autoclose'
+UnBundle 'vim-scripts/sessionman.vim'

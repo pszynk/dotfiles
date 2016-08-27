@@ -1,0 +1,39 @@
+{
+  "aria2": {
+    "args": [
+        "--conf-path=/home/pawel/.config/aria2/pp-aria2.conf"
+    ],
+    "path": "/usr/bin/aria2c"
+  },
+  "pacman": {
+    "config": "/etc/pacman.conf",
+    "path": "/usr/bin/pacman"
+  },
+  "pacserve": {
+    "server": null
+  },
+  "powerpill": {
+    "select": true,
+    "reflect databases": false
+  },
+  "reflector": {
+    "args.unsued": [
+      "--protocol", "http",
+      "--latest", "50"
+    ]
+  },
+  "rsync": {
+    "args": [
+      "--no-motd",
+      "--progress"
+    ],
+    "db only": true,
+    "path": "/usr/bin/rsync",
+    "servers": [
+        "rsync://mirror.onet.pl/pub/mirrors/archlinux/$repo/os/$arch",
+        "rsync://ftp.hosteurope.de/archlinux/$repo/os/$arch",
+        "rsync://ftp.tuxdroid.org/archlinux/$repo/os/$arch",
+        "rsync://ftp.fau.de/archlinux/$repo/os/$arch"
+    ]
+  }
+}

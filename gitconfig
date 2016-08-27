@@ -1,0 +1,5 @@
+[user]
+	name = Paweł Szynkiewicz
+	email = sed s/x/pszynk/ <<< x@gmail.com
+[push]
+	default = simple

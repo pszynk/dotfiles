@@ -1,0 +1,23 @@
+"let g:spf13_no_autochdir = 1
+" lokalny leader (gryzie sie z c-support)
+
+"let g:spf13_no_views = 1
+let g:spf13_localleader = '\'
+"fonty powerline
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = "f"
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+let g:spf13_bundle_groups=['general', 'youcompleteme', 'programming', 'python']
+"let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming', 'python', 'misc']
+"groups unsused: 'writing', 'php', 'javascript','html','go', 'misc',
+
+" no fast sabs with S-H i S-M let g:spf13_no_fastTabs = 1
+"let g:spf13_no_fastTabs = 1
+" no easy windows with C_HJKL
+"let g:spf13_no_easyWindows= 1

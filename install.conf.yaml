@@ -1,0 +1,68 @@
+- clean: ['~']
+
+- link:
+    ~/.Xresources: Xresources
+    ~/.bash_logout: bash_logout
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.condarc: condarc
+    ~/.config/aria2:
+        path: config/aria2/
+        create: true
+    ~/.config/autorandr:
+        path: config/autorandr/
+        create: true
+    ~/.config/awesome:
+        path: config/awesome/
+        create: true
+    ~/.config/bauerbill:
+        path: config/bauerbill/
+        create: true
+    ~/.config/fontconfig:
+        path: config/fontconfig/
+        create: true
+    ~/.config/htop:
+        path: config/htop/
+        create: true
+    ~/.config/libfm:
+        path: config/libfm/
+        create: true
+    ~/.config/pacaur:
+        path: config/pacaur/
+        create: true
+    ~/.config/pianobar:
+        path: config/pianobar/
+        create: true
+    ~/.config/powerpill:
+        path: config/powerpill/
+        create: true
+    ~/.config/qnapi.ini:
+        path: config/qnapi.ini
+        create: true
+    ~/.config/termite:
+        path: config/termite/
+        create: true
+    ~/.config/yaourt:
+        path: config/yaourt/
+        create: true
+    ~/.ctags: ctags
+    ~/.fbtermrc: fbtermrc
+    ~/.gdbinit: gdbinit
+    ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
+    ~/.gtkrc-2.0: gtkrc-2.0
+    ~/.gtkrc-2.0.mine: gtkrc-2.0.mine
+    ~/.gvimrc.local: gvimrc.local
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+    ~/.tmux.conf: tmux.conf
+    ~/.vimrc.before.local: vimrc.before.local
+    ~/.vimrc.bundles.local: vimrc.bundles.local
+    ~/.vimrc.local: vimrc.local
+    ~/.xinitrc: xinitrc
+    ~/.zprofile: zprofile
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
+
+

@@ -1,0 +1,3 @@
+create_default_packages:
+  - ipython
+  - pip

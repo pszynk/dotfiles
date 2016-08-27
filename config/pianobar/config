@@ -1,0 +1,46 @@
+#############
+## connection
+
+user = itsjustheham@gmail.com
+password = niemahasla
+audio_quality = high
+control_proxy = 54.201.246.216:3128
+
+#############
+## config
+
+history = 8
+autostart_station = 1418895296869706889
+
+#############
+## controls
+
+## volume
+act_voldown = [
+act_volup = ]
+act_volreset = +
+
+## love/ban
+act_songlove = =
+act_songban = _
+
+act_stationdelete = D
+act_managestation = )
+
+#############
+## ui
+
+## icons
+love_icon =<3
+ban_icon =</3
+
+## Format strings
+format_nowplaying_song = [1;35m%t[0m by [32m%a[0m on [34m%l[0m [1;30m[45m%r[0m%@[36m%s[0m
+format_nowplaying_station = Station [1;31m%n[0m                    (%i)
+format_list_song = [1m%i)[0m [32m%a[0m - [1;35m%t[0m [1;30m[45m%r[0m
+
+format_msg_time = # [1m%s[0m
+format_msg_err = [1;30m[41m/!\[0m [1;31m%s[0m
+format_msg_question = [1m[?][0m [33m%s[0m
+format_msg_list =        [1;36m%s[0m
+
