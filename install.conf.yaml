@@ -12,9 +12,6 @@
     ~/.config/autorandr:
         path: config/autorandr/
         create: true
-    ~/.config/awesome:
-        path: config/awesome/
-        create: true
     ~/.config/bauerbill:
         path: config/bauerbill/
         create: true
