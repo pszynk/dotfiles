@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+PATH="/usr/local/bin:$PATH"
+dir="`git rev-parse --git-dir`"
+#srcs="dir/from/root another/dir/from/root" # source dirs
+trap 'rm -f "$dir/$$.tags"' EXIT
+#git ls-files $srcs | \
+git ls-files | \
+  ctags --tag-relative -L - -f"$dir/$$.tags" --languages=-javascript,sql
+mv "$dir/$$.tags" "$dir/tags"
