@@ -1,0 +1,26 @@
+#!/bin/bash
+
+RM="/bin/rm"
+
+function clean_pacman {
+    echo "cleaning pacman cache..."
+    sudo pacman -Scc
+    echo "done"
+}
+
+function clean_coredump {
+    echo "removing coredumps..."
+    sudo ${RM} -rf /var/lib/coredump/*
+    echo "done"
+}
+
+function clean_journal {
+    echo "vacuum journal..."
+    local journal_cmd="--vacuum-time=2d"
+    sudo journalctl ${journal_cmd};
+    echo "done"
+}
+
+clean_pacman
+clean_coredump
+clean_journal

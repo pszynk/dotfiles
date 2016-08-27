@@ -51,12 +51,66 @@
     ~/.gtkrc-2.0: gtkrc-2.0
     ~/.gtkrc-2.0.mine: gtkrc-2.0.mine
     ~/.gvimrc.local: gvimrc.local
+
     ~/.local/share/applications/jetbrains-idea.desktop:
         path: local/share/applications/jetbrains-idea.desktop
+        create: true
     ~/.local/share/applications/jetbrains-pycharm.desktop:
         path: local/share/applications/jetbrains-pycharm.desktop
+        create: true
     ~/.local/share/applications/jetbrains-webstorm.desktop:
         path: local/share/applications/jetbrains-webstorm.desktop
+        create: true
+
+    ~/.local/share/bin/batcharge.py:
+        path: local/share/bin/batcharge.py
+        create: true
+    ~/.local/share/bin/cleanup-var:
+        path: local/share/bin/cleanup-var
+        create: true
+    ~/.local/share/bin/eject-wd:
+        path: local/share/bin/eject-wd
+        create: true
+    ~/.local/share/bin/ghci-color:
+        path: local/share/bin/ghci-color
+        create: true
+    ~/.local/share/bin/movesinks:
+        path: local/share/bin/movesinks
+        create: true
+    ~/.local/share/bin/mymailx:
+        path: local/share/bin/mymailx
+        create: true
+    ~/.local/share/bin/napiprojekt.py:
+        path: local/share/bin/napiprojekt.py
+        create: true
+    ~/.local/share/bin/powerline:
+        path: local/share/bin/powerline
+        create: true
+    ~/.local/share/bin/powerline-lint:
+        path: local/share/bin/powerline-lint
+        create: true
+    ~/.local/share/bin/powerpill:
+        path: local/share/bin/powerpill
+        create: true
+    ~/.local/share/bin/quake-gvim:
+        path: local/share/bin/quake-gvim
+        create: true
+    ~/.local/share/bin/screen-detect:
+        path: local/share/bin/screen-detect
+        create: true
+    ~/.local/share/bin/_update-mirrorlist:
+        path: local/share/bin/_update-mirrorlist
+        create: true
+    ~/.local/share/bin/update-mirrorlist:
+        path: local/share/bin/update-mirrorlist
+        create: true
+    ~/.local/share/bin/update-spacemacs:
+        path: local/share/bin/update-spacemacs
+        create: true
+    ~/.local/share/bin/update-spf-vim:
+        path: local/share/bin/update-spf-vim
+        create: true
+
     ~/.ssh/config:
         path: ssh/config
         create: true

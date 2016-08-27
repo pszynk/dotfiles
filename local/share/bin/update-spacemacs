@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+## update spacemacs from repo
+cd ~/.emacs.d
+git pull --rebase
+git fetch upstream
+git checkout develop
+git merge upstream/develop
+git push

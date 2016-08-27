@@ -1,0 +1,5 @@
+#!/bin/bash
+read -s -p "pszynk@gmail.com password: " gmailpassword
+echo
+echo "Mail content:"
+\mailx -v -S smtp-auth-password="$gmailpassword" "$@"

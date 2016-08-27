@@ -1,0 +1,63 @@
+#!/usr/bin/sh
+
+export DISPLAY=':0';
+export XAUTHORITY="/home/$USER/.Xauthority";
+
+########### Settings ###########
+
+# Use 'xrandr' to find these
+DP="DP1"
+VGA="VGA1"
+HDMI="HDMI1"
+INTERNAL_DISPLAY="LVDS1"
+
+# Check /sys/class/drm for the exact location
+DP_STATUS="$(cat /sys/class/drm/card0-DP-1/status)"
+VGA_STATUS="$(cat /sys/class/drm/card0-VGA-1/status)"
+HDMI_STATUS="$(cat /sys/class/drm/card0-HDMI-A-1/status)"
+
+# Do no change!
+EXTERNAL_DISPLAY=""
+
+# Check to see if the external display is connected
+if [ "${DP_STATUS}" = connected ]; then
+    EXTERNAL_DISPLAY=$DP
+fi
+
+if [ "${VGA_STATUS}" = connected ]; then
+    EXTERNAL_DISPLAY=$VGA
+fi
+
+if [ "${HDMI_STATUS}" = connected ]; then
+    EXTERNAL_DISPLAY=$HDMI
+fi
+
+# The external display is connected
+if [ "$EXTERNAL_DISPLAY" != "" ]; then
+
+    logger "screen-detect -> connecting display ${EXTERNAL_DISPLAY}"
+    # Set the display settings
+    xrandr \
+        --output $INTERNAL_DISPLAY --auto --primary \
+        --output $EXTERNAL_DISPLAY --auto --left-of $INTERNAL_DISPLAY
+    notify-send "connected ${EXTERNAL_DISPLAY}"
+
+    # If connected via HDMI, change the sound profile to output HDMI audio
+    #if [ $EXTERNAL_DISPLAY=$HDMI ]; then
+    #    sudo -u $USER pactl set-card-profile 0 output:hdmi-surround
+    #fi
+
+    # The external display is not connected
+else
+
+    logger "screen-detect -> disconnecting display"
+    # Restore to single display
+    xrandr --output $HDMI --off
+    notify-send "screen disconnected"
+    #xrandr --output $DP --off
+    #xrandr --output $VGA --off
+
+    # Restore laptop sound profile
+    #sudo -u $USER pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
+fi
+exit 0
