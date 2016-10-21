@@ -28,7 +28,12 @@ Host instantresponder-pszynk.rhcloud.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/repoid
 
-Host 46.242.131.11
+#Host 46.242.131.11
+    ##HostName github.com
+    #PreferredAuthentications publickey
+    #IdentityFile ~/.ssh/repoid
+
+Host delmoto.pl
     #HostName github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/repoid
