@@ -5,7 +5,7 @@ if [[ ! -d ~/.zplug ]]; then
 fi
 
 # Essential
-source ~/.zplug/zplug
+source ~/.zplug/init.zsh
 
 #-------------------------------
 # local plugins
