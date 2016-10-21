@@ -39,9 +39,8 @@ browser = chromium
 # version from terminal.sexy
 
 # special
-foreground      = #93a1a1
-foreground_bold = #93a1a1
-cursor          = #93a1a1
+foreground      = #839496
+foreground_bold = #eee8d5
 background      = #002b36
 
 # black
@@ -70,7 +69,7 @@ color13 = #d33682
 
 # cyan
 color6  = #2aa198
-color14 = #148d93
+color14 = #93a1a1
 
 # white
 color7  = #eee8d5
