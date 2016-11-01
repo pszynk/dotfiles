@@ -7,47 +7,7 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
-#-------------------------------
-# local plugins
-#-------------------------------
 
-# TODO
-# lokalne pluginy z githuba
-# przy okazji troche je postprzatac
-# ----
-# sprawdzic zakomentaowane paczki
-# poszukac innych
-bundle_local() {
-    local local_path=${2:="$HOME/.config/zsh/plugin"}
-    zplug "${local_path}/$1", from:local
-}
-
-local -a local_plugins
-local -a solarized_plugins
-local local_plugin_path
-
-# always load
-local_plugins=(
-core # alias
-folders # funcs
-power  # env vars
-#vim
-autorandr
-lesspipe # format & colour with less
-pachelp # pacman helpers (powerpill & bauerbill)
-)
-
-# load local plugins
-for p in $local_plugins; do
-    bundle_local $p
-done
-
-solarized_plugins=(
-manpage  # opts
-#dircolors
-)
-
-zplug "pszynk/zsh", use:"plugins/vim/*.zsh", nice:10
 
 #-------------------------------
 # remote plugins
@@ -64,7 +24,7 @@ function {
     zstyle ':prezto:*:*' color 'yes'
     zstyle ':prezto:module:pacman' frontend 'pacaur'
     zstyle ':prezto:module:prompt' theme sorin
-    zstyle ':prezto:module:ssh' identities 'id_repo'
+    #zstyle ':prezto:module:ssh' identities 'id_repo'
     zstyle ':prezto:module:terminal' auto-title 'yes'
 
     # modules
@@ -85,10 +45,10 @@ function {
         'tmux'
         'command-not-found'
         'archive'
-        'gpg'
         'node'
         'rsync'
-        'ssh'
+        'python'
+        # 'gpg' has errors
         )
 
     modules_dist=()
@@ -100,6 +60,7 @@ function {
     modules_style=(
         'syntax-highlighting'
         'history-substring-search'
+        'autosuggestions'
         'prompt'
     )
     pmodules=($modules_core $modules_tools $modules_dist $modules_style)
@@ -127,7 +88,36 @@ zplug "seebi/dircolors-solarized"
 
 #zplug tarruda/zsh-autosuggestions
 
+#-------------------------------
+# local plugins
+#-------------------------------
 
+load_pszynk() {
+    for p in $@; do
+        zplug "pszynk/zsh", use:"plugins/$p/*.zsh"
+    done
+}
+
+local -a main_plugins
+local -a solarized_plugins
+
+# always load
+main_plugins=(
+    'core'      # alias
+    'folders'   # funcs
+    'power'     # env vars
+    'autorandr'
+    'lesspipe'  # format & colour with less
+    'pgp'
+)
+
+# load my plugins
+load_pszynk $main_plugins
+
+
+solarized_plugins=(
+    #'manpage'  # opts
+)
 
 #-------------------------------
 # Specific terminals
@@ -137,14 +127,12 @@ zplug "seebi/dircolors-solarized"
 
 if [ "$TERM" != "linux" ]; then
     # Load solarized plugins
-    for p in $solarized_plugins; do
-        bundle_local $p
-    done
+    load_pszynk $solarized_plugins
 else
     zstyle ':prezto:module:prompt' theme sorin
 fi
 
-unset -f bundle_local
+unset -f load_pszynk
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

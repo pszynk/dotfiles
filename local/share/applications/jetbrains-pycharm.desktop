@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=PyCharm
-Icon=/opt/JetBrains/PyCharm/pycharm/bin/pycharm.png
-Exec="/opt/JetBrains/PyCharm/pycharm/bin/pycharm.sh" %f
+Icon=/home/pawel/.local/share/icons/hicolor/128x128/apps/pycharm.png
+Exec=pycharm %f
 Comment=Develop with pleasure!
 Categories=Development;IDE;
 Terminal=false

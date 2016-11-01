@@ -9,7 +9,7 @@ source ~/.config/zsh/plugin/core/core.plugin.zsh
 source ~/.config/zsh/plugin/autorandr/autorandr.plugin.zsh
 
 # start one session of ssh agent per X session
-eval $(ssh-agent)
+#eval $(ssh-agent) using gpg zsh plugin
 
 # monitors detect
 autorandr -c &

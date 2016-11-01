@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=WebStorm
-Icon=/opt/JetBrains/WebStorm/webstorm/bin/webstorm.svg
-Exec="/opt/JetBrains/WebStorm/webstorm/bin/webstorm.sh" %f
+Icon=/home/pawel/.local/share/icons/hicolor/128x128/apps/webstorm.svg
+Exec=webstorm %f
 Comment=Develop with pleasure!
 Categories=Development;IDE;
 Terminal=false

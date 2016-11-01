@@ -1,39 +1,33 @@
 ServerAliveCountMax 3
 ServerAliveInterval 240
+AddKeysToAgent yes
 
 
 Host bitbucket.org
-    #HostName bitbucket.org
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/repoid
 
-#Host repoidgh
 Host github.com
-    #HostName github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/repoid
 
 Host git.code.sf.net
-    #HostName github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/repoid
 
-Host brightsolutions.no-ip.biz
-    #HostName github.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/repoid
 
 Host instantresponder-pszynk.rhcloud.com
-    #HostName github.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/repoid
 
-#Host 46.242.131.11
-    ##HostName github.com
-    #PreferredAuthentications publickey
-    #IdentityFile ~/.ssh/repoid
+
+
+Host brightsolutions.no-ip.biz
+    ForwardAgent yes
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/repoid
 
 Host delmoto.pl
-    #HostName github.com
+    ForwardAgent yes
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/repoid
