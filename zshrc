@@ -108,7 +108,7 @@ main_plugins=(
     'power'     # env vars
     'autorandr'
     'lesspipe'  # format & colour with less
-    'pgp'
+    'gpg'
 )
 
 # load my plugins
