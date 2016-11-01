@@ -60,7 +60,7 @@ function {
     modules_style=(
         'syntax-highlighting'
         'history-substring-search'
-        'autosuggestions'
+        #'autosuggestions'
         'prompt'
     )
     pmodules=($modules_core $modules_tools $modules_dist $modules_style)
