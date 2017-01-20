@@ -1,18 +1,33 @@
 # x settings
+
 # remove annoing beep
 xset -b
 setterm -blength 0
 
-# so awesome execute command uses aliases
-# (with display manager exit /etc/X11/Xsession.d)
-#source ~/.config/zsh/plugin/core/core.plugin.zsh
-#source ~/.config/zsh/plugin/autorandr/autorandr.plugin.zsh
 
 # start one session of ssh agent per X session
 #eval $(ssh-agent) using gpg zsh plugin
 
-# monitors detect
-autorandr -c &
+# Reading default variables for X apps
+xrdb -merge ~/.Xdefaults
 
-# start awesome window manager
-exec awesome # should log to file ?
+
+function __launch_awesome {
+    # so awesome execute command uses aliases
+    # (with display manager exit /etc/X11/Xsession.d)
+    #source ~/.config/zsh/plugin/core/core.plugin.zsh
+    #source ~/.config/zsh/plugin/autorandr/autorandr.plugin.zsh
+
+    # monitors detect
+    #autorandr -c &
+    dex -a &
+    xss-lock -- sxlock -l -f '-misc-inconsolata-medium-r-normal--20-0-0-0-m-0-iso8859-2' &
+
+    # start awesome window manager
+    exec awesome # should log to file ?
+}
+
+case "$_WM" in
+    awesome) __launch_awesome;;
+    *)       __launch_awesome;;
+esac
