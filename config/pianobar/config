@@ -4,7 +4,11 @@
 user = itsjustheham@gmail.com
 password = niemahasla
 audio_quality = high
-control_proxy = 54.201.246.216:3128
+# some russiona vpn
+#control_proxy = 104.197.32.1:80
+# pandora -> tor -> polipo
+control_proxy = localhost:8123
+
 
 #############
 ## config
@@ -35,9 +39,9 @@ love_icon =<3
 ban_icon =</3
 
 ## Format strings
-format_nowplaying_song = [1;35m%t[0m by [32m%a[0m on [34m%l[0m [1;30m[45m%r[0m%@[36m%s[0m
+format_nowplaying_song = [1;35m%t[0m by [32m%a[0m on [34m%l[0m [1;35m[45m%r[0m%@[36m%s[0m
 format_nowplaying_station = Station [1;31m%n[0m                    (%i)
-format_list_song = [1m%i)[0m [32m%a[0m - [1;35m%t[0m [1;30m[45m%r[0m
+format_list_song = [1m%i)[0m [32m%a[0m - [1;35m%t[0m [1;35m[1;45m%r[0m
 
 format_msg_time = # [1m%s[0m
 format_msg_err = [1;30m[41m/!\[0m [1;31m%s[0m

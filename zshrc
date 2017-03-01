@@ -71,6 +71,7 @@ function {
 # oh-my-zsh #
 #############
 zplug "plugins/pip", from:oh-my-zsh
+zplug "plugins/docker", from:oh-my-zsh
 
 #########
 # other #
@@ -103,11 +104,12 @@ local -a solarized_plugins
 
 # always load
 main_plugins=(
-    'core'      # alias
+    'core'      # alias misc
     'folders'   # funcs
     'power'     # env vars
     'autorandr'
     'lesspipe'  # format & colour with less
+    'docker'
     'gpg'
 )
 
@@ -143,7 +145,7 @@ if ! zplug check --verbose; then
 fi
 
 # load zplug
-zplug load --verbose
+zplug load #--verbose
 
 #-------------------------------
 # opts for ZSH
