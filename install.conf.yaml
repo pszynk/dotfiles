@@ -3,55 +3,33 @@
     link:
         create: true
         relink: true
+    link-many:
+        create: true
+        relink: true
 
 - link:
-    ~/.Xresources:
     ~/.bash_logout:
     ~/.bash_profile:
     ~/.bashrc:
     ~/.condarc:
     ~/.config/aria2:
-        path: config/aria2/
     ~/.config/autorandr:
-        path: config/autorandr/
     ~/.config/bauerbill:
-        path: config/bauerbill/
     ~/.config/fontconfig:
-        path: config/fontconfig/
-    ~/.config/htop:
-        path: config/htop/
     ~/.config/libfm:
-        path: config/libfm/
     ~/.config/pacaur:
-        path: config/pacaur/
     ~/.config/pianobar:
-        path: config/pianobar/
     ~/.config/powerpill:
-        path: config/powerpill/
-    ~/.config/qnapi.ini:
-        path: config/qnapi.ini
     ~/.config/termite:
-        path: config/termite/
     ~/.config/yaourt:
-        path: config/yaourt/
     ~/.ctags:
     ~/.fbtermrc:
     ~/.gdbinit:
     ~/.gitconfig:
     ~/.gitignore_global:
     ~/.git_template:
-    ~/.gtkrc-2.0:
     ~/.gtkrc-2.0.mine:
     ~/.gvimrc.local:
-
-    ${XDG_DATA_HOME}/applications:
-        path: local/share/applications
-        link_children: true
-
-    ~/.local/share/bin:
-        path: local/share/bin
-        link_children: true
-
     ~/.ssh/config:
         path: ssh/config
     ~/.tmux.conf:
@@ -59,10 +37,14 @@
     ~/.vimrc.bundles.local:
     ~/.vimrc.local:
     ~/.xinitrc:
+    ~/.Xresources:
     ~/.zprofile:
     ~/.zshenv:
     ~/.zshrc:
 
+- link-many:
+    ${XDG_DATA_HOME}/applications:
+    ${XDG_DATA_HOME}/bin:
 
 
 
