@@ -1,77 +1,68 @@
 - clean: ['~']
+- defaults:
+    link:
+        create: true
+        relink: true
 
 - link:
-    ~/.Xresources: Xresources
-    ~/.bash_logout: bash_logout
-    ~/.bash_profile: bash_profile
-    ~/.bashrc: bashrc
-    ~/.condarc: condarc
+    ~/.Xresources:
+    ~/.bash_logout:
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.condarc:
     ~/.config/aria2:
         path: config/aria2/
-        create: true
     ~/.config/autorandr:
         path: config/autorandr/
-        create: true
     ~/.config/bauerbill:
         path: config/bauerbill/
-        create: true
     ~/.config/fontconfig:
         path: config/fontconfig/
-        create: true
     ~/.config/htop:
         path: config/htop/
-        create: true
     ~/.config/libfm:
         path: config/libfm/
-        create: true
     ~/.config/pacaur:
         path: config/pacaur/
-        create: true
     ~/.config/pianobar:
         path: config/pianobar/
-        create: true
     ~/.config/powerpill:
         path: config/powerpill/
-        create: true
     ~/.config/qnapi.ini:
         path: config/qnapi.ini
-        create: true
     ~/.config/termite:
         path: config/termite/
-        create: true
     ~/.config/yaourt:
         path: config/yaourt/
-        create: true
-    ~/.ctags: ctags
-    ~/.fbtermrc: fbtermrc
-    ~/.gdbinit: gdbinit
-    ~/.gitconfig: gitconfig
-    ~/.gitignore_global: gitignore_global
-    ~/.git_template: git_template
-    ~/.gtkrc-2.0: gtkrc-2.0
-    ~/.gtkrc-2.0.mine: gtkrc-2.0.mine
-    ~/.gvimrc.local: gvimrc.local
+    ~/.ctags:
+    ~/.fbtermrc:
+    ~/.gdbinit:
+    ~/.gitconfig:
+    ~/.gitignore_global:
+    ~/.git_template:
+    ~/.gtkrc-2.0:
+    ~/.gtkrc-2.0.mine:
+    ~/.gvimrc.local:
 
-    ~/.local/share/applications:
+    ${XDG_DATA_HOME}/applications:
         path: local/share/applications
-        create: true
         link_children: true
 
     ~/.local/share/bin:
         path: local/share/bin
-        create: true
         link_children: true
 
     ~/.ssh/config:
         path: ssh/config
-        create: true
-    ~/.tmux.conf: tmux.conf
-    ~/.vimrc.before.local: vimrc.before.local
-    ~/.vimrc.bundles.local: vimrc.bundles.local
-    ~/.vimrc.local: vimrc.local
-    ~/.xinitrc: xinitrc
-    ~/.zprofile: zprofile
-    ~/.zshenv: zshenv
-    ~/.zshrc: zshrc
+    ~/.tmux.conf:
+    ~/.vimrc.before.local:
+    ~/.vimrc.bundles.local:
+    ~/.vimrc.local:
+    ~/.xinitrc:
+    ~/.zprofile:
+    ~/.zshenv:
+    ~/.zshrc:
+
+
 
 
