@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -e
+
+BASE_CONFIG="base"
+CONFIG_SUFFIX=".yaml"
+
+META_DIR="meta"
+CONFIG_DIR="configs"
+PROFILES_DIR="profiles"
+
+DOTBOT_DIR="dotbot"
+DOTBOT_BIN="bin/dotbot"
+
+DOTBOT_PLUGINS=("dotbot-pacaur/pacaur.py")
+
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
+cd "${BASE_DIR}"
+git submodule update --init --recursive --remote
+
+#. "${BASE_DIR}/${META_DIR}/utils.sh"
+
+printf -v PLUGINS -- "-p ${META_DIR}/%s " "${DOTBOT_PLUGINS[@]}"
+
+echo -e "\nConfigure ${BASE_CONFIG}"
+"${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}" "${PLUGINS}"
+
+for config in ${@}; do
+    echo -e "\nConfigure ${config}"
+    "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "${BASE_DIR}/${META_DIR}/${CONFIG_DIR}/${config}${CONFIG_SUFFIX}" "${PLUGINS}"
+done

@@ -1,0 +1,9 @@
+
+- defaults:
+    link:
+        relink: true
+
+- link:
+    ~/.zprofile:
+    ~/.zshenv:
+    ~/.zshrc:

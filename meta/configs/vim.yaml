@@ -1,0 +1,10 @@
+
+- defaults:
+    link:
+        relink: true
+
+- link:
+    ~/.gvimrc.local:
+    ~/.vimrc.before.local:
+    ~/.vimrc.bundles.local:
+    ~/.vimrc.local:

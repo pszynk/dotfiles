@@ -1,0 +1,17 @@
+
+- defaults:
+    link:
+        create: true
+        relink: true
+
+- link:
+    ~/.config/aria2:
+    ~/.config/autorandr:
+    ~/.config/bauerbill:
+    ~/.config/fontconfig:
+    ~/.config/libfm:
+    ~/.config/pacaur:
+    ~/.config/pianobar:
+    ~/.config/powerpill:
+    ~/.config/termite:
+    ~/.config/yaourt:

@@ -1,0 +1,9 @@
+
+- defaults:
+    link:
+        relink: true
+
+- link:
+    ~/.bash_logout:
+    ~/.bash_profile:
+    ~/.bashrc:

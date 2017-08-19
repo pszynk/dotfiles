@@ -1,0 +1,8 @@
+- defaults:
+    link:
+        relink: true
+
+- link:
+    ~/.gitconfig:
+    ~/.gitignore_global:
+    ~/.git_template:

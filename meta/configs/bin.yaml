@@ -1,0 +1,10 @@
+- clean:
+  - ${XDG_DATA_HOME}/bin
+
+- defaults:
+    link-many:
+        create: true
+        relink: true
+
+- link-many:
+    ${XDG_DATA_HOME}/bin:

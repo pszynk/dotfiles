@@ -1,0 +1,6 @@
+- defaults:
+    link:
+        relink: true
+
+- link:
+    ~/.gtkrc-2.0.mine:

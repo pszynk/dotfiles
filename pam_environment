@@ -1,0 +1,19 @@
+# pam_env local variables
+
+# XDG
+XDG_CACHE_HOME      DEFAULT=@{HOME}/.cache
+XDG_CONFIG_HOME     DEFAULT=@{HOME}/.config
+XDG_DATA_HOME       DEFAULT=@{HOME}/.local/share
+
+
+# include
+LIB_INCLUDE_PATH    DEFAULT=@{HOME}/.local/include
+
+# system
+EDITOR=vim
+
+# custom
+DEFAULT_USER=pawel
+PERSONAL_DIR=@{HOME}/Personal
+WORKON_HOME=@{HOME}/.miniconda3/envs
+JETBRAINS_HOME=@{HOME}/.jetbrains
