@@ -16,4 +16,5 @@
 #sortby=popularity                     # sort method (name|votes|popularity)
 #sortorder=descending                  # sort order (ascending|descending)
 #sudoloop=true                         # prevent sudo timeout
-pacmanbin=/home/pawel/.local/share/bin/powerpill
+#pacmanbin=/home/pawel/.local/share/bin/powerpill
+pacmanbin="powerpill --powerpill-config ${XDG_CONFIG_HOME}/powerpill/powerpill.json"
