@@ -3,6 +3,6 @@
         relink: true
 
 - link:
-    ~/.gitconfig:
-    ~/.gitignore_global:
-    ~/.git_template:
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+    ~/.git_template: git/git_template

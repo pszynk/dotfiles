@@ -4,6 +4,6 @@
         relink: true
 
 - link:
-    ~/.zprofile:
-    ~/.zshenv:
-    ~/.zshrc:
+    ~/.zprofile: zsh/zprofile
+    ~/.zshenv: zsh/zshenv
+    ~/.zshrc: zsh/zshrc

@@ -12,6 +12,8 @@ PROFILES_DIR="profiles"
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 
+DOTBOT_PLUGINS=("dotbot-pacaur/pacaur.py")
+
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 
@@ -26,6 +28,7 @@ done < "${META_DIR}/${PROFILES_DIR}/$1"
 shift
 
 printf -v PLUGINS -- "-p ${META_DIR}/%s " "${DOTBOT_PLUGINS[@]}"
+echo $PLUGINS
 
 echo -e "\nConfigure ${BASE_CONFIG}"
 "${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASE_DIR}" -c "${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}" ${PLUGINS}

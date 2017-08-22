@@ -4,6 +4,6 @@
         relink: true
 
 - link:
-    ~/.bash_logout:
-    ~/.bash_profile:
-    ~/.bashrc:
+    ~/.bash_logout:  bash/bash_logout
+    ~/.bash_profile: bash/bash_logout
+    ~/.bashrc:       bash/bashrc

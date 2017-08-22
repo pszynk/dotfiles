@@ -4,7 +4,7 @@
         relink: true
 
 - link:
-    ~/.gvimrc.local:
-    ~/.vimrc.before.local:
-    ~/.vimrc.bundles.local:
-    ~/.vimrc.local:
+    ~/.gvimrc.local: vim/gvimrc.local
+    ~/.vimrc.before.local: vim/vimrc.before.local
+    ~/.vimrc.bundles.local: vim/vimrc.bundles.local
+    ~/.vimrc.local: vim/vimrc.local

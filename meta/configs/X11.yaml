@@ -4,5 +4,5 @@
         relink: true
 
 - link:
-    ~/.xinitrc:
-    ~/.Xresources:
+    ~/.xinitrc: X11/xinitrc
+    ~/.Xresources: X11/Xresources
