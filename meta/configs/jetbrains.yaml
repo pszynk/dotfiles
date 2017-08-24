@@ -10,6 +10,7 @@
         relink: true
 
 - link:
+    .ideavimrc: jetbrains/ideavimrc
     $XDG_DATA_HOME/applications/jetbrains-idea.desktop:
         path: jetbrains/idea/jetbrains-idea.desktop
     $XDG_DATA_HOME/bin/idea:
