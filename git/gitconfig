@@ -3,3 +3,5 @@
 	email = sed s/x/pszynk/ <<< x@gmail.com
 [push]
 	default = simple
+[gitreview]
+	remote = origin
