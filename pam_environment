@@ -14,6 +14,6 @@ EDITOR=vim
 
 # custom
 DEFAULT_USER=pawel
-PERSONAL_DIR=@{HOME}/Personal
-WORKON_HOME=@{HOME}/.miniconda3/envs
-JETBRAINS_HOME=@{HOME}/.jetbrains
+PERSONAL_DIR        DEFAULT=@{HOME}/Personal
+WORKON_HOME         DEFAULT=@{HOME}/.miniconda3/envs
+JETBRAINS_HOME      DEFAULT=@{HOME}/.jetbrains
