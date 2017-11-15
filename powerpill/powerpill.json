@@ -30,10 +30,16 @@
     "db only": true,
     "path": "/usr/bin/rsync",
     "servers": [
-        "rsync://mirror.onet.pl/pub/mirrors/archlinux/$repo/os/$arch",
-        "rsync://ftp.hosteurope.de/archlinux/$repo/os/$arch",
-        "rsync://ftp.tuxdroid.org/archlinux/$repo/os/$arch",
-        "rsync://ftp.fau.de/archlinux/$repo/os/$arch"
+        "rsync://mirror.js-webcoding.de/pub/archlinux/$repo/os/$arch",
+        "rsync://mirror.f4st.host/archlinux/$repo/os/$arch",
+        "rsync://mirror.pseudoform.org/packages/$repo/os/$arch",
+        "rsync://ftp.sh.cvut.cz/arch/$repo/os/$arch",
+        "rsync://archlinux.polymorf.fr/archlinux/$repo/os/$arch",
+        "rsync://ftp.halifax.rwth-aachen.de/archlinux/$repo/os/$arch",
+        "rsync://mirror.netcologne.de/archlinux/$repo/os/$arch",
+        "rsync://archlinux.mailtunnel.eu/archlinux/$repo/os/$arch",
+        "rsync://pkg.adfinis-sygroup.ch/archlinux/$repo/os/$arch",
+        "rsync://ftp.nluug.nl/archlinux/$repo/os/$arch"
     ]
   }
 }
