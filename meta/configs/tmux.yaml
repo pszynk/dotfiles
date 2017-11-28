@@ -1,7 +1,12 @@
-
 - defaults:
     link:
         relink: true
 
 - link:
-    ~/.tmux.conf:
+    ~/.config/tmux/tmux.conf:
+        create: true
+
+- shell:
+    - [ "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm",
+        "Installing Temux Plugin Manager. Press preffix + I to install plugins."
+        ]

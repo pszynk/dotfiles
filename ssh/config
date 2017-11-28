@@ -72,8 +72,15 @@ Host kibana-delmoto.pl
 
 #NASK
 Host nask.czerw
-    HostName  195.187.35.80
-    User root
+    HostName  czerw
+    User dro
+    ForwardAgent yes
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_nask
+
+Host nask.percona
+    HostName  percona
+    User pawelsz
     ForwardAgent yes
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_nask
