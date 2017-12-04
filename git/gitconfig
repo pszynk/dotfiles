@@ -6,3 +6,71 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[alias]
+    # one-line log
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+
+    a = add
+    ap = add -p
+    c = commit --verbose
+    ca = commit -a --verbose
+    cm = commit -m
+    cam = commit -a -m
+    m = commit --amend --verbose
+    
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+
+    s = status -s
+    co = checkout
+    cob = checkout -b
+    # list branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+    rao = remote add origin
+    ac = !git add . && git commit -am
+    pushitgood = push -u origin --all
+
+    undo-commit = reset --soft HEAD~1
+
+    clean-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
+    ka = !gitk --all --date-order &
+    orphank = !gitk --all --date-order `git reflog | cut -c1-7`&    
+
+    sobmodules = submodule update --init --recursive
+
+    rb = "!f() { \
+                echo fetching...; \
+                git fetch; \
+                if [ $? -eq 0 ]; then \
+                    last_status=$(git status --untracked-files=no --porcelain); \
+                    if [ \"$last_status\" != \"\" ]; then \
+                        echo stashing local changes...; \
+                        git stash; \
+                    else \
+                        echo nothing to stash...; \
+                    fi;\
+                    if [ $? -eq 0 ]; then \
+                        echo rebasing...;\
+                        git rebase;\
+                        if [ $? -eq 0 ]; then \
+                            if [ \"$last_status\" != \"\" ]; then\
+                                echo applying stashed changes...;\
+                                git stash pop;\
+                                if [ $? -ne 0 ]; then \
+                                    echo STASH POP FAIL - you will need to resolve merge conflicts with git mergetool; \
+                                fi; \
+                            fi; \
+                        else \
+                            echo REBASE FAILED - you will need to manually run stash pop; \
+                        fi;\
+                    fi;\
+                fi; \
+                if [ $? -ne 0 ]; then \
+                    echo ERROR: Operation failed; \
+                fi; \
+            }; f"

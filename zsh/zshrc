@@ -78,6 +78,7 @@ zplug "plugins/docker", from:oh-my-zsh
 #########
 zplug "horosgrisa/zsh-dropbox"
 zplug "unixorn/git-extra-commands"
+# git secret - encrypt/decrypt + git
 zplug "sobolevn/git-secret"
 zplug "seebi/dircolors-solarized"
 
@@ -135,6 +136,9 @@ else
 fi
 
 unset -f load_pszynk
+
+# show alias hints
+zplug "djui/alias-tips", from:github, defer:3
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
