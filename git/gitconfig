@@ -3,3 +3,6 @@
 	email = sed s/x/pszynk/ <<< x@gmail.com
 [push]
 	default = simple
+[rerere]
+	enabled = true
+	autoupdate = true

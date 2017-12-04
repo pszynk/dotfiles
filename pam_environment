@@ -11,9 +11,3 @@ LIB_INCLUDE_PATH    DEFAULT=@{HOME}/.local/include
 
 # system
 EDITOR=vim
-
-# custom
-DEFAULT_USER=pawel
-PERSONAL_DIR        DEFAULT=@{HOME}/Personal
-WORKON_HOME         DEFAULT=@{HOME}/.miniconda3/envs
-JETBRAINS_HOME      DEFAULT=@{HOME}/.jetbrains

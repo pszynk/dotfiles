@@ -24,7 +24,7 @@ function __launch_awesome {
     xss-lock -- sxlock -l -f '-misc-inconsolata-medium-r-normal--20-0-0-0-m-0-iso8859-2' &
 
     # start awesome window manager
-    exec awesome # should log to file ?
+    exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
 }
 
 case "$_WM" in

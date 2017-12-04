@@ -1,31 +1,32 @@
 - clean:
     - $XDG_DATA_HOME/applications
     - $XDG_DATA_HOME/bin
-    - ${JETBRAINS_HOME}/idea/current/bin
-    - ${JETBRAINS_HOME}/pycharm/current/bin
-    - ${JETBRAINS_HOME}/webstorm/current/bin
+    - $IDEA_PROPERTIES
+    - $PYCHARM_PROPERTIES
+    - $WEBIDE_PROPERTIES
 
 - defaults:
     link:
         relink: true
+        create: true
 
 - link:
-    .ideavimrc: jetbrains/ideavimrc
+    ~/.ideavimrc: jetbrains/ideavimrc
     $XDG_DATA_HOME/applications/jetbrains-idea.desktop:
         path: jetbrains/idea/jetbrains-idea.desktop
     $XDG_DATA_HOME/bin/idea:
         path: jetbrains/idea/idea
-    ${JETBRAINS_HOME}/idea/current/bin/idea.properties:
+    ${IDEA_PROPERTIES}:
         path: jetbrains/idea/idea.properties
     $XDG_DATA_HOME/applications/jetbrains-pycharm.desktop:
         path: jetbrains/pycharm/jetbrains-pycharm.desktop
     $XDG_DATA_HOME/bin/charm:
         path: jetbrains/pycharm/charm
-    ${JETBRAINS_HOME}/pycharm/current/bin/idea.properties:
+    ${PYCHARM_PROPERTIES}:
         path: jetbrains/pycharm/idea.properties
     $XDG_DATA_HOME/applications/jetbrains-webstorm.desktop:
         path: jetbrains/webstorm/jetbrains-webstorm.desktop
     $XDG_DATA_HOME/bin/webstorm:
         path: jetbrains/webstorm/webstorm
-    ${JETBRAINS_HOME}/webstorm/current/bin/idea.properties:
+    ${WEBIDE_PROPERTIES}:
         path: jetbrains/webstorm/idea.properties

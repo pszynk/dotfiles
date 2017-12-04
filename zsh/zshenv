@@ -8,16 +8,27 @@
 ## 
 ## export PATH
 # $LIB_INCLUDE_PATH (custom set in .pam_environment)
+export LIB_INCLUDE_PATH="$HOME/.local/include"
 export C_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$C_INCLUDE_PATH"
 export CPLUS_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$CPLUS_INCLUDE_PATH"
 export CXX_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$CXX_INCLUDE_PATH"
 
-#export XDG_CONFIG_HOME="$HOME/.config"
-#export XDG_CACHE_HOME="$HOME/.cache"
-#export EDITOR=vim
-#export DEFAULT_USER="pawel"
-#export PERSONAL_DIR="$HOME/Personal"
-#export WORKON_HOME="$HOME/.miniconda3/envs"
-#
+export DEFAULT_USER="pawel"
+export PERSONAL_DIR="$HOME/Personal"
+export WORKON_HOME="$HOME/.miniconda3/envs"
+export JETBRAINS_HOME="$HOME/.jetbrains"
+
+# jetbrains
+export JETBRAINS_CONFIG="$XDG_CONFIG_HOME/JetBrains"
+export IDEA_PROPERTIES="$JETBRAINS_CONFIG/IntelliJIdea/idea.properites"
+export PYCHARM_PROPERTIES="$JETBRAINS_CONFIG/PyCharm/idea.properites"
+export DATAGRIP_PROPERTIES="$JETBRAINS_CONFIG/DataGrip/idea.properites"
+export WEBIDE_PROPERTIES="$JETBRAINS_CONFIG/WebStorm/idea.properites"
+export STUDIO_PROPERTIES="$JETBRAINS_CONFIG/AndroidStudio/idea.properites"
+#export CL_PROPERTIES="$XDG_CONFIG_HOME/clion"
+#export APPCODE_PROPERTIES="$XDG_CONFIG_HOME/appcode"
+#export PHPSTORM_PROPERTIES="$XDG_CONFIG_HOME/phpstorm"
+
+
 # for xtrace (bash debug) file + line number
 export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
