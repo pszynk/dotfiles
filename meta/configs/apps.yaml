@@ -3,6 +3,9 @@
     link:
         create: true
         relink: true
+- pacaur:
+    - fzf
+    - fd-rs
 
 - link:
     ~/.config/aria2:
