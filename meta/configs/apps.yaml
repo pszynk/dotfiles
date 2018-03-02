@@ -11,7 +11,10 @@
     ~/.config/fontconfig:
     ~/.config/libfm:
     ~/.config/pacaur:
-    ~/.config/pianobar:
+    ~/.config/pianobar/config:
+        path: pianobar/config
+        create: true
+        relink: true
     ~/.config/powerpill:
     ~/.config/termite:
     ~/.config/yaourt:

@@ -30,7 +30,6 @@
     "db only": true,
     "path": "/usr/bin/rsync",
     "servers": [
-        "rsync://mirror.js-webcoding.de/pub/archlinux/$repo/os/$arch",
         "rsync://mirror.f4st.host/archlinux/$repo/os/$arch",
         "rsync://mirror.pseudoform.org/packages/$repo/os/$arch",
         "rsync://ftp.sh.cvut.cz/arch/$repo/os/$arch",
