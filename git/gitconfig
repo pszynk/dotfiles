@@ -74,3 +74,5 @@
                     echo ERROR: Operation failed; \
                 fi; \
             }; f"
+[merge]
+	tool = vimdiff
