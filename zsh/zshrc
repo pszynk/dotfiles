@@ -59,8 +59,8 @@ function {
 
     modules_style=(
         'syntax-highlighting'
-        'history-substring-search'
-        #'autosuggestions'
+        #'history-substring-search'
+        'autosuggestions'
         'prompt'
     )
     pmodules=($modules_core $modules_tools $modules_dist $modules_style)
@@ -155,6 +155,9 @@ fi
 
 # load zplug
 zplug load #--verbose
+
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 #-------------------------------
 # opts for ZSH

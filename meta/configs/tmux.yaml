@@ -2,11 +2,16 @@
     link:
         relink: true
 
+- clean:
+  - '~'
+  - "${XDG_CONFIG_HOME}/tmux"
+
 - link:
-    ~/.config/tmux/tmux.conf:
-        create: true
+    ~/.tmux.conf:
 
 - shell:
-    - [ "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm",
-        "Installing Temux Plugin Manager. Press preffix + I to install plugins."
-        ]
+    - ["mkdir -p ${XDG_CONFIG_HOME}/tmux/plugins/tmp", Create plugin directory]
+    -
+      command: git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm || echo Tmux Plugin Manager probably installed!
+      stdout: true
+      description: Installing Temux Plugin Manager. Press preffix + I to install plugins.
