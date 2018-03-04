@@ -72,14 +72,14 @@ Host kibana-delmoto.pl
 
 #NASK
 Host nask.czerw
-    HostName  czerw
+    HostName  root.czerw
     User dro
     ForwardAgent yes
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_nask
 
-Host nask.percona
-    HostName  percona
+Host nask.czerw.percona
+    HostName  percona.czerw
     User pawelsz
     ForwardAgent yes
     PreferredAuthentications publickey
@@ -90,6 +90,14 @@ Host nask.madrid
     HostName madrid.dro.nask.pl
     User pawelsz
     Port 29418
+    ForwardAgent yes
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_nask
+
+Host nask.matlab1
+    HostName matlab1.nask
+    User pawelsz
+    Port 22
     ForwardAgent yes
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_nask

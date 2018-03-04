@@ -122,6 +122,11 @@ solarized_plugins=(
     #'manpage'  # opts
 )
 
+# TODO (nie dziala?)
+zplug "/home/pawel/.zshrc.local", from:local
+# no to tak...
+source "/home/pawel/.zshrc.local"
+
 #-------------------------------
 # Specific terminals
 #-------------------------------
