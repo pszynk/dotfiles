@@ -8,7 +8,6 @@
     - fd-rs
 
 - link:
-    ~/.config/aria2:
     ~/.config/autorandr:
     ~/.config/bauerbill:
     ~/.config/fontconfig:

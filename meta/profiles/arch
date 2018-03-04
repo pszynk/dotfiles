@@ -2,6 +2,7 @@ env
 bash
 zsh
 apps
+aria2
 bin
 vim
 ssh

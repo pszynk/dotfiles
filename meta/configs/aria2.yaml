@@ -1,0 +1,30 @@
+- clean: 
+  - ${XDG_CONFIG_HOME}
+  - ${XDG_CONFIG_HOME}/aria2
+  - ${XDG_CONFIG_HOME}/systemd
+  - ${XDG_CONFIG_HOME}/systemd/user
+
+- defaults:
+    link:
+        create: true
+        relink: true
+    link-many:
+        create: true
+        relink: true
+
+- link:
+    ~/${XDG_CONFIG_HOME}/systemd/user/aria2.service: aria2/systemd/aria2.service
+
+- link:
+    ${XDG_CONFIG_HOME}/aria2: aria2/conf
+
+- shell:
+    - 
+      command: '[ -f ${XDG_CONFIG_HOME}/systemd/aria2-env.conf ] || sed "s/^\(ARIA2_RPC_SECRET=\).*/\1$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32)/" aria2/systemd/aria2-env.conf.example > ${XDG_CONFIG_HOME}/systemd/aria2-env.conf'
+      description: create config file with RPC secret
+    - ["mkdir -p ${XDG_CACHE_HOME}/aria2 && touch ${XDG_CACHE_HOME}/aria2/session.daemon",
+        create aria2 session file]
+    - ["systemctl --user enable aria2", enable aria2 daemon on login]
+
+- pacaur:
+    - aria2

@@ -1,7 +1,7 @@
 {
   "aria2": {
     "args": [
-        "--conf-path=/home/pawel/.config/aria2/pp-aria2.conf"
+        "--conf-path=/home/pawel/.config/aria2/aria2.powerpill"
     ],
     "path": "/usr/bin/aria2c"
   },
