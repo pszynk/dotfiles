@@ -6,6 +6,7 @@
 - pacaur:
     - fzf
     - fd-rs
+    - fpp-git
 
 - link:
     ~/.config/autorandr:

@@ -35,5 +35,5 @@ summary-interval=0
 #truncate-console-readout=false
 
 # logging
-#log-level=warn
-log=/tmp/ytd-aria.log
+log-level=warn
+log=${HOME}/local/share/aria2/youtube-dl.log

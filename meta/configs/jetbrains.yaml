@@ -1,32 +1,22 @@
 - clean:
-    - $XDG_DATA_HOME/applications
-    - $XDG_DATA_HOME/bin
-    - $IDEA_PROPERTIES
-    - $PYCHARM_PROPERTIES
-    - $WEBIDE_PROPERTIES
+    ~/.ideavimrc:
+      force: true
+    ~/.local/share/bin:
+      force: true
 
 - defaults:
     link:
-        relink: true
-        create: true
+      relink: true
+      create: true
 
 - link:
-    ~/.ideavimrc: jetbrains/ideavimrc
-    $XDG_DATA_HOME/applications/jetbrains-idea.desktop:
-        path: jetbrains/idea/jetbrains-idea.desktop
-    $XDG_DATA_HOME/bin/idea:
-        path: jetbrains/idea/idea
-    ${IDEA_PROPERTIES}:
-        path: jetbrains/idea/idea.properties
-    $XDG_DATA_HOME/applications/jetbrains-pycharm.desktop:
-        path: jetbrains/pycharm/jetbrains-pycharm.desktop
-    $XDG_DATA_HOME/bin/charm:
-        path: jetbrains/pycharm/charm
-    ${PYCHARM_PROPERTIES}:
-        path: jetbrains/pycharm/idea.properties
-    $XDG_DATA_HOME/applications/jetbrains-webstorm.desktop:
-        path: jetbrains/webstorm/jetbrains-webstorm.desktop
-    $XDG_DATA_HOME/bin/webstorm:
-        path: jetbrains/webstorm/webstorm
-    ${WEBIDE_PROPERTIES}:
-        path: jetbrains/webstorm/idea.properties
+    ~/.ideavimrc:
+      force: true
+
+- shell:
+    - ["ln -s /usr/bin/intellij-idea-ultimate-edition ${XDG_DATA_HOME}/bin/idea", just link to idea]
+
+- pacaur:
+  - intellij-idea-ultimate-edition-jre
+  - intellij-idea-ultimate-edition
+  - pycharm-professional

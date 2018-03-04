@@ -7,3 +7,7 @@
     ~/.zprofile: zsh/zprofile
     ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc
+
+- shell:
+    - ["touch ~/.zshrc.local", create .zshrc.local if not exists]
+
