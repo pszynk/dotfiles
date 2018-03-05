@@ -1,0 +1,9 @@
+# environment parameters
+
+#ARIA2_USER="aria2c"
+#ARIA2_GROUP="aria2c"
+#ARIA2_HOME="/var/share/aria2c"
+
+ARIA2_RPC_SECRET="aria2c"
+
+#ARIA2_ARGS="-D --conf-path=${ARIA2_CONF} --save-session-interval=180 --save-session=${ARIA2_SESSION}"

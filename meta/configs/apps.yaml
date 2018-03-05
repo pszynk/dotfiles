@@ -6,9 +6,9 @@
 - pacaur:
     - fzf
     - fd-rs
+    - fpp-git
 
 - link:
-    ~/.config/aria2:
     ~/.config/autorandr:
     ~/.config/bauerbill:
     ~/.config/fontconfig:
