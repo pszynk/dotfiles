@@ -40,4 +40,4 @@ remote-time=true
 
 # logging
 log-level=warn
-log=${HOME}/local/share/aria2/powerpill.log
+log=/var/log/aria2c/powerpill.log

@@ -1,0 +1,12 @@
+[Unit]
+Description=Aria2 Service
+After=network.target
+
+[Service]
+WorkingDirectory=%h/.config/aria2
+Environment="ARIA2C_RPC_SECRET=aria2c"
+EnvironmentFile=-%h/.config/systemd/aria2c-env.conf
+ExecStart=/usr/bin/aria2c --rpc-secret=${ARIA2C_RPC_SECRET} --conf-path=aria2.daemon
+
+[Install]
+WantedBy=default.target

@@ -14,9 +14,16 @@
       force: true
 
 - shell:
-    - ["ln -s /usr/bin/intellij-idea-ultimate-edition ${XDG_DATA_HOME}/bin/idea", just link to idea]
+    - ["ln -s /usr/bin/intellij-idea-ultimate-edition ${XDG_DATA_HOME}/bin/idea", simple bin name]
+    #- ["ln -s /usr/bin/idea-ce-eap ${XDG_DATA_HOME}/bin/idea", simple bin name]
+    #- ["ln -s /usr/bin/pycharm-eap ${XDG_DATA_HOME}/bin/pycharm", just link to idea]
 
 - pacaur:
+  # professional
   - intellij-idea-ultimate-edition-jre
   - intellij-idea-ultimate-edition
   - pycharm-professional
+  # community
+  #- intellij-jdk
+  #- intellij-idea-ce-eap
+  #- pycharm-community-eap

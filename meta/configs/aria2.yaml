@@ -13,20 +13,21 @@
         relink: true
 
 - link:
-    ~/${XDG_CONFIG_HOME}/systemd/user/aria2.service: aria2/systemd/aria2.service
+    ${XDG_CONFIG_HOME}/systemd/user/aria2c.service: aria2/systemd/aria2c.service
 
 - link:
     ${XDG_CONFIG_HOME}/aria2: aria2/conf
 
 - shell:
     - 
-      command: '[ -f ${XDG_CONFIG_HOME}/systemd/aria2-env.conf ] || sed "s/^\(ARIA2_RPC_SECRET=\).*/\1$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32)/" aria2/systemd/aria2-env.conf.example > ${XDG_CONFIG_HOME}/systemd/aria2-env.conf'
+      command: '[ -f ${XDG_CONFIG_HOME}/systemd/aria2c-env.conf ] || sed "s/^\(ARIA2C_RPC_SECRET=\).*/\1$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32)/" aria2/systemd/aria2c-env.conf.example > ${XDG_CONFIG_HOME}/systemd/aria2c-env.conf'
       description: create config file with RPC secret
     - ["mkdir -p ${XDG_CACHE_HOME}/aria2 && touch ${XDG_CACHE_HOME}/aria2/session.daemon",
         create aria2 session file]
     - ["mkdir -p ${XDG_DATA_HOME}/aria2",
         create aria2 local data (logging) dir]
-    - ["systemctl --user enable aria2", enable aria2 daemon on login]
+    - ["systemctl --user enable aria2c", enable aria2 daemon on login]
+    - ["sudo mkdir -p /var/log/aria2c", create log directory]
 
 - pacaur:
     - aria2
