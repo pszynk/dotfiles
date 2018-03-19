@@ -2,7 +2,13 @@
     link:
         create: true
         relink: true
+    link-many:
+        create: true
+        relink: true
 
 - link:
     ~/.ssh/config:
         path: ssh/config
+- link-many:
+    ~/.ssh/conf.d/:
+        path: ssh/conf.d
