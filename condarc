@@ -6,3 +6,6 @@ channels:
   - scrapinghub
   - menpo
   - conda-forge
+auto_update_conda: false
+pkgs_dirs:
+  - ~/.conda/pkgs
