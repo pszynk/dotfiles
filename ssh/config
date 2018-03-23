@@ -3,4 +3,4 @@ ServerAliveInterval 240
 #AddKeysToAgent yes
 
 
-Include conf.d/*
+Include conf.d/*.conf
