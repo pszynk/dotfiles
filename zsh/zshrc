@@ -1,7 +1,6 @@
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
   git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
 fi
 
 # Essential
@@ -16,15 +15,18 @@ source ~/.zplug/init.zsh
 ##########
 # prezto #
 ##########
+zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh,\
+    hook-build:"ln -s $ZPLUG_ROOT/repos/sorin-ionescu/prezto ${ZDOTDIR:-$HOME}/.zprezto"
 
 function {
+    # settings
+    zstyle ':prezto:*:*' color 'yes'
+    zstyle ':prezto:module:pacman' frontend 'pacaur'
+    zstyle ':prezto:module:prompt' theme sorin
+    #zstyle ':prezto:module:ssh' identities 'id_repo'
+    zstyle ':prezto:module:terminal' auto-title 'yes'
 
     # modules
-    typeset -a modules_core
-    typeset -a modules_tools
-    typeset -a modules_style
-    typeset -a modules
-
     modules_core=(
         'environment'
         'terminal'
@@ -48,37 +50,20 @@ function {
         # 'gpg' has errors
         )
 
+    modules_dist=()
+    if [[ $(uname -r) =~ ARCH ]]
+    then
+        modules_dist=('pacman')
+    fi
 
     modules_style=(
         'syntax-highlighting'
-        #'history-substring-search' (fzf is better!)
+        #'history-substring-search'
         'autosuggestions'
         'prompt'
     )
-
-    modules=($modules_core $modules_tools $modules_style)
-
-    # settings
-    zstyle ':prezto:*:*' color 'yes'
-    zstyle ':prezto:module:pacman' frontend 'pacaur'
-    #zstyle ':prezto:module:ssh' identities 'id_repo'
-    zstyle ':prezto:module:terminal' auto-title 'yes'
-
-    # style
-    if [[ ${TERM} == 'xterm-termite' ]]; then
-      #POWERLEVEL9K_MODE='awesome-fontconfig'
-      #zstyle ':prezto:module:prompt' theme powerlevel9k
-      zstyle ':prezto:module:prompt' theme sorin
-    else
-      zstyle ':prezto:module:prompt' theme nicoulaj
-    fi
-
-    for m in $modules; do
-      zplug "modules/$m", from:prezto
-    done
-
-    zplug "modules/pacman", from:prezto, if:"[[ $(uname -r) =~ ARCH ]]"
-
+    pmodules=($modules_core $modules_tools $modules_dist $modules_style)
+    zstyle ':prezto:load' pmodule $pmodules
 }
 
 #############
@@ -136,6 +121,11 @@ solarized_plugins=(
     #'manpage'  # opts
 )
 
+# TODO (nie dziala?)
+zplug "/home/pawel/.zshrc.local", from:local
+# no to tak...
+source "/home/pawel/.zshrc.local"
+
 #-------------------------------
 # Specific terminals
 #-------------------------------
@@ -161,6 +151,8 @@ if ! zplug check --verbose; then
         echo; zplug install
     fi
 fi
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # load zplug
 zplug load #--verbose
