@@ -27,7 +27,15 @@ function __launch_awesome {
     exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
 }
 
-case "$_WM" in
-    awesome) __launch_awesome;;
-    *)       __launch_awesome;;
+function __launch_i3 {
+  exec i3
+}
+
+session=${1:-awesome}
+
+case "$session" in
+    awesome)    __launch_awesome;;
+    i3)         __launch_i3;;
+    # No known session, try to run it as command
+    *)          exec $1;;
 esac
