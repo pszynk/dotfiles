@@ -22,9 +22,15 @@ function {
     # settings
     zstyle ':prezto:*:*' color 'yes'
     zstyle ':prezto:module:pacman' frontend 'pacaur'
-    zstyle ':prezto:module:prompt' theme sorin
     #zstyle ':prezto:module:ssh' identities 'id_repo'
     zstyle ':prezto:module:terminal' auto-title 'yes'
+    
+    local _theme=nicoulaj
+    if [[ $TERM = 'xterm-termite' || $TMUX ]]; then
+      _theme=sorin
+    fi
+    zstyle ':prezto:module:prompt' theme $_theme
+      
 
     # modules
     modules_core=(
@@ -131,13 +137,9 @@ source "/home/pawel/.zshrc.local"
 #-------------------------------
 
 [[ $EMACS = t ]] && unsetopt zle
-
-if [ "$TERM" != "linux" ]; then
-    # Load solarized plugins
-    load_pszynk $solarized_plugins
-else
-    zstyle ':prezto:module:prompt' theme sorin
-fi
+#
+ # Load solarized plugins
+[[ "$TERM" != "linux" ]] && load_pszynk $solarized_plugins
 
 unset -f load_pszynk
 
