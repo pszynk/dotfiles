@@ -1,0 +1,11 @@
+
+- defaults:
+    link:
+        create: true
+        relink: true
+- pacaur:
+    - ranger
+
+- link:
+    ~/.config/ranger/rc.conf:
+        path: ranger/rc.conf

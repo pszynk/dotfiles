@@ -1,6 +1,7 @@
 env
 bash
 zsh
+ranger
 apps
 aria2
 bin
