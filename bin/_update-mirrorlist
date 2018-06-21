@@ -1,3 +1,3 @@
 #!/bin/sh
 cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
-reflector --verbose -c PL -c DE --sort rate -f 4 --save /etc/pacman.d/mirrorlist
+reflector --verbose -c DE --sort rate -f 4 --save /etc/pacman.d/mirrorlist
