@@ -12,7 +12,6 @@
     ~/.config/autorandr:
     ~/.config/bauerbill:
     ~/.config/fontconfig:
-    ~/.config/libfm:
     ~/.config/pacaur:
     ~/.config/pianobar/config:
         path: pianobar/config

@@ -15,7 +15,7 @@ export CXX_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$CXX_INCLUDE_PATH"
 
 export DEFAULT_USER="pawel"
 export PERSONAL_DIR="$HOME/Personal"
-export WORKON_HOME="$HOME/.miniconda3/envs"
+export WORKON_HOME="$HOME/.conda/envs"
 
 # for xtrace (bash debug) file + line number
 export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'

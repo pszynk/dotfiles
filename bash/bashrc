@@ -7,3 +7,5 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+
+CONDA="/etc/profile.d/conda.sh" && [[ -f "$CONDA" ]] && . "$CONDA"
