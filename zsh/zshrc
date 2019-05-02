@@ -6,8 +6,6 @@ fi
 # Essential
 source ~/.zplug/init.zsh
 
-
-
 #-------------------------------
 # remote plugins
 #-------------------------------
@@ -86,8 +84,14 @@ zplug "unixorn/git-extra-commands"
 # git secret - encrypt/decrypt + git
 zplug "sobolevn/git-secret"
 zplug "seebi/dircolors-solarized"
+# show alias hints
+zplug "djui/alias-tips", from:github, defer:3
 
-# TODO
+# zplug itself 
+# TODO (but i think it doesn't work)
+#zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# TODO check if worth
 #zplug hchbaw/zce zce # easy motion
 #zplug fbterm
 #sharat87/zsh-vim-mode
@@ -128,39 +132,35 @@ solarized_plugins=(
 )
 
 # TODO (nie dziala?)
-zplug "/home/pawel/.zshrc.local", from:local
+#zplug "/home/pawel/.zshrc.local", from:local
 # no to tak...
 source "/home/pawel/.zshrc.local"
 
 #-------------------------------
-# Specific terminals
+# Software
 #-------------------------------
-
-[[ $EMACS = t ]] && unsetopt zle
-#
- # Load solarized plugins
-[[ "$TERM" != "linux" ]] && load_pszynk $solarized_plugins
-
-unset -f load_pszynk
-
-# show alias hints
-zplug "djui/alias-tips", from:github, defer:3
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
-# load zplug
-zplug load #--verbose
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+
+CONDA="/etc/profile.d/conda.sh" && [[ -f "$CONDA" ]] && . "$CONDA"
+
+# emacs
+[[ $EMACS = t ]] && unsetopt zle
+
+
+#-------------------------------
+# colors
+#-------------------------------
+
+# dircolors
+eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
+if [ -n "$LS_COLORS" ]; then
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
+
+ # Load solarized plugins
+[[ "$TERM" != "linux" ]] && load_pszynk $solarized_plugins && unset -f load_pszynk
 
 #-------------------------------
 # opts for ZSH
@@ -172,12 +172,16 @@ setopt extended_glob
 setopt autopushd
 
 #-------------------------------
-# rest
+# ZPLUG epilogue
 #-------------------------------
-# dircolors
-eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
-if [ -n "$LS_COLORS" ]; then
-    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
 
-CONDA="/etc/profile.d/conda.sh" && [[ -f "$CONDA" ]] && . "$CONDA"
+# load zplug
+zplug load #--verbose
