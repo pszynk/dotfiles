@@ -1,6 +1,6 @@
 [submodule "dotbot"]
 	path = meta/dotbot
-	url = https://github.com/pszynk/dotbot
+	url = https://github.com/anishathalye/pszynk/dotbot
 [submodule "dotbot-yay"]
-	path = dotbot-yay
+	path = meta/dotbot-yay
 	url = https://github.com/alexwh/dotbot-yay

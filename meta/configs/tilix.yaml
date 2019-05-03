@@ -1,0 +1,14 @@
+
+- defaults:
+    link:
+        create: true
+        relink: true
+    link-many:
+        create: true
+        relink: true
+- pacaur:
+    - tilix
+
+- link-many:
+    ~/.config/tilix/scheme:
+        path: tilix/scheme
