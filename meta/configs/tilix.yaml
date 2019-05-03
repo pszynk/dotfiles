@@ -10,5 +10,9 @@
     - tilix
 
 - link-many:
-    ~/.config/tilix/scheme:
-        path: tilix/scheme
+    ~/.config/tilix/schemes/:
+        path: tilix/schemes
+
+- shell:
+    - ["dconf load -f /com/gexperts/Tilix/ <~/.dotfiles/tilix/tilix.dconf",
+       "dconf: load tilix config"]
