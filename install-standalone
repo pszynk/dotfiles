@@ -12,7 +12,7 @@ PROFILES_DIR="profiles"
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 
-DOTBOT_PLUGINS=("dotbot-pacaur/pacaur.py")
+DOTBOT_PLUGINS=("dotbot-yay/yay.py")
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

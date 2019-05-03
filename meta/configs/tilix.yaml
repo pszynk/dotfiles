@@ -6,7 +6,7 @@
     link-many:
         create: true
         relink: true
-- pacaur:
+- yay:
     - tilix
 
 - link-many:

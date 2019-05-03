@@ -19,7 +19,7 @@ zplug "sorin-ionescu/prezto", as:plugin, use:init.zsh,\
 function {
     # settings
     zstyle ':prezto:*:*' color 'yes'
-    zstyle ':prezto:module:pacman' frontend 'pacaur'
+    zstyle ':prezto:module:pacman' frontend 'yay'
     #zstyle ':prezto:module:ssh' identities 'id_repo'
     zstyle ':prezto:module:terminal' auto-title 'yes'
     
