@@ -1,4 +1,5 @@
 # Check if zplug is installed
+
 if [[ ! -d ~/.zplug ]]; then
   git clone https://github.com/zplug/zplug ~/.zplug
 fi
@@ -24,7 +25,7 @@ function {
     zstyle ':prezto:module:terminal' auto-title 'yes'
     
     local _theme=nicoulaj
-    if [[ $TERM = 'xterm-termite' || $TMUX ]]; then
+    if [[ $TERM =~ "xterm" || $TERM = 'xterm-termite' || $TMUX ]]; then
       _theme=sorin
     fi
     zstyle ':prezto:module:prompt' theme $_theme
@@ -83,7 +84,9 @@ zplug "horosgrisa/zsh-dropbox"
 zplug "unixorn/git-extra-commands"
 # git secret - encrypt/decrypt + git
 zplug "sobolevn/git-secret"
-zplug "seebi/dircolors-solarized"
+
+zstyle ':pszynk:module:dircolors' scheme 'gruvbox'
+zplug "pszynk/zsh-dircolors"
 # show alias hints
 zplug "djui/alias-tips", from:github, defer:3
 
@@ -137,39 +140,19 @@ solarized_plugins=(
 source "/home/pawel/.zshrc.local"
 
 #-------------------------------
-# Software
-#-------------------------------
-
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-
-CONDA="/etc/profile.d/conda.sh" && [[ -f "$CONDA" ]] && . "$CONDA"
-
-# emacs
-[[ $EMACS = t ]] && unsetopt zle
-
-
-#-------------------------------
 # colors
 #-------------------------------
 
 # dircolors
-eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
-if [ -n "$LS_COLORS" ]; then
-    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
+#eval `dircolors $ZPLUG_HOME/repos/seebi/dircolors-solarized/dircolors.256dark`
+#if [ -n "$LS_COLORS" ]; then
+#    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+#fi
 
  # Load solarized plugins
-[[ "$TERM" != "linux" ]] && load_pszynk $solarized_plugins && unset -f load_pszynk
+[[ "$TERM" != "linux" ]] && load_pszynk $solarized_plugins
 
-#-------------------------------
-# opts for ZSH
-#-------------------------------
-
-# extended glob (i.e. '^',...)
-setopt extended_glob
-
-setopt autopushd
+unset -f load_pszynk
 
 #-------------------------------
 # ZPLUG epilogue
@@ -185,3 +168,27 @@ fi
 
 # load zplug
 zplug load #--verbose
+
+#-------------------------------
+# Software
+#-------------------------------
+
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
+CONDA="/etc/profile.d/conda.sh" && [[ -f "$CONDA" ]] && . "$CONDA"
+
+# emacs
+[[ $EMACS = t ]] && unsetopt zle
+
+
+
+#-------------------------------
+# opts for ZSH
+#-------------------------------
+
+# extended glob (i.e. '^',...)
+setopt extended_glob
+
+setopt autopushd
+
