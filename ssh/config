@@ -3,4 +3,5 @@ ServerAliveInterval 240
 #AddKeysToAgent yes
 
 
+Include config.local
 Include conf.d/*.conf
