@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Copied mostly from https://gist.github.com/rumpelsepp/d646750910be19332753
+
+# Check if yay is already installed
+if type yay > /dev/null 2>&1; then
+  exit
+fi
+
+START=$(pwd)
+BUILDROOT="$(mktemp -d)"
+
+# Make sure we can even build packages on arch linux.
+sudo pacman -S --needed --noconfirm base-devel git
+
+mkdir -p "$BUILDROOT"
+cd "$BUILDROOT" || exit 1
+
+cd $BUILDROOT || exit 1
+git clone "https://aur.archlinux.org/yay.git"
+
+cd "$BUILDROOT/yay" || exit 1
+makepkg --syncdeps --install --noconfirm
+
+cd "$START" || exit 1
+rm -rf "$BUILDROOT"
+
+if ! type yay > /dev/null 2>&1; then
+  echo "yay installation failed"
+  exit 1
+fi

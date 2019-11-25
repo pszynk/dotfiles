@@ -1,0 +1,18 @@
+
+- defaults:
+    link:
+        create: true
+        relink: true
+    link-many:
+        create: true
+        relink: true
+- yay:
+    - tilix
+
+- link-many:
+    ~/.config/tilix/schemes/:
+        path: tilix/schemes
+
+- shell:
+    - ["dconf load -f /com/gexperts/Tilix/ <~/.dotfiles/tilix/tilix.dconf",
+       "dconf: load tilix config"]

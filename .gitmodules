@@ -1,6 +1,12 @@
 [submodule "dotbot"]
 	path = meta/dotbot
-	url = https://github.com/pszynk/dotbot
-[submodule "meta/dotbot-pacaur"]
-	path = meta/dotbot-pacaur
-	url = https://github.com/ajlende/dotbot-pacaur
+	url = https://github.com/anishathalye/dotbot
+[submodule "dotbot-yay"]
+	path = meta/dotbot-yay
+	url = https://github.com/alexwh/dotbot-yay
+[submodule "meta/dotbot"]
+	path = meta/dotbot
+	url = git@github.com:anishathalye/dotbot.git
+[submodule "meta/dotbot-link-many"]
+	path = meta/dotbot-link-many
+	url = git@github.com:pszynk/dotbot-link-many.git

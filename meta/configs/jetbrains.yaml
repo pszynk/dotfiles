@@ -18,7 +18,7 @@
     #- ["ln -s /usr/bin/idea-ce-eap ${XDG_DATA_HOME}/bin/idea", simple bin name]
     #- ["ln -s /usr/bin/pycharm-eap ${XDG_DATA_HOME}/bin/pycharm", just link to idea]
 
-- pacaur:
+- yay:
   # professional
   - intellij-idea-ultimate-edition-jre
   - intellij-idea-ultimate-edition

@@ -3,7 +3,7 @@
     link:
         create: true
         relink: true
-- pacaur:
+- yay:
     - fzf
     - fd-rs
     - fpp-git
@@ -12,7 +12,7 @@
     ~/.config/autorandr:
     ~/.config/bauerbill:
     ~/.config/fontconfig:
-    ~/.config/pacaur:
+    ~/.config/yay:
     ~/.config/pianobar/config:
         path: pianobar/config
         create: true

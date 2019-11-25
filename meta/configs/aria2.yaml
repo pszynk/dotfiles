@@ -29,5 +29,5 @@
     - ["systemctl --user enable aria2c", enable aria2 daemon on login]
     - ["sudo mkdir -p /var/log/aria2c", create log directory]
 
-- pacaur:
+- yay:
     - aria2
