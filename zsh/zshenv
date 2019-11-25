@@ -25,3 +25,20 @@ PERSONAL_DIR="$HOME/Personal"
 
 # for xtrace (bash debug) file + line number
 PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+
+# TODO add to plugin
+
+# TODO `e` is alias for editor, but what about emacs?
+#alias v='vim'
+
+#
+## Vagrant Aliases.
+#
+alias vv='vagrant'
+alias vstat='vagrant status'
+alias vup='vagrant up'
+alias vdown='vagrant halt'
+alias vssh='vagrant ssh'
+alias vsync='vagrant rsync-auto'
+alias vdest='vagrant destroy'
+alias vdestf='vagrant destroy -f'
