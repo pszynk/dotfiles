@@ -6,6 +6,11 @@
 typeset -U PATH path
 path=($HOME/.local/share/bin $path[@])
 
+# TODO add this to plugin
+if [[ $+command[pyenv] -eq 1 ]]; then
+    path+=("$PYENV_ROOT/shims")
+fi
+
 # also set in custom set in .pam_environment
 LIB_INCLUDE_PATH="$HOME/.local/include"
 C_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$C_INCLUDE_PATH"
