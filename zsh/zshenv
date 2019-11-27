@@ -3,19 +3,42 @@
 # env vars for ZSH
 #-------------------------------
 
-## WARNING !!! PATH set in ~/.zprofile due to bug/behaviour
-## https://wiki.archlinux.org/index.php/zsh#Configuring_.24PATH
-## 
-## export PATH
-# $LIB_INCLUDE_PATH (custom set in .pam_environment)
-export LIB_INCLUDE_PATH="$HOME/.local/include"
-export C_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$C_INCLUDE_PATH"
-export CPLUS_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$CPLUS_INCLUDE_PATH"
-export CXX_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$CXX_INCLUDE_PATH"
+typeset -U PATH path
+path=($HOME/.local/share/bin $path[@])
 
-export DEFAULT_USER="pawel"
-export PERSONAL_DIR="$HOME/Personal"
-export WORKON_HOME="$HOME/.conda/envs"
+# TODO add this to plugin
+if [[ $+command[pyenv] -eq 1 ]]; then
+    path+=("$PYENV_ROOT/shims")
+fi
+
+# also set in custom set in .pam_environment
+LIB_INCLUDE_PATH="$HOME/.local/include"
+C_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$C_INCLUDE_PATH"
+CPLUS_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$CPLUS_INCLUDE_PATH"
+CXX_INCLUDE_PATH="$LIB_INCLUDE_PATH/:$CXX_INCLUDE_PATH"
+
+DEFAULT_USER="pawel"
+PERSONAL_DIR="$HOME/Personal"
+
+# python virtualenvs location
+# WORKON_HOME="$HOME/.conda/envs"
 
 # for xtrace (bash debug) file + line number
-export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+
+# TODO add to plugin
+
+# TODO `e` is alias for editor, but what about emacs?
+#alias v='vim'
+
+#
+## Vagrant Aliases.
+#
+alias vv='vagrant'
+alias vstat='vagrant status'
+alias vup='vagrant up'
+alias vdown='vagrant halt'
+alias vssh='vagrant ssh'
+alias vsync='vagrant rsync-auto'
+alias vdest='vagrant destroy'
+alias vdestf='vagrant destroy -f'

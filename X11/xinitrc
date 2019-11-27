@@ -50,6 +50,7 @@ function __launch_awesome {
     #autorandr -c &
     dex -a &
     xss-lock -- sxlock -l -f '-misc-inconsolata-medium-r-normal--20-0-0-0-m-0-iso8859-2' &
+    #redshift-gtk &
 
     # start awesome window manager
     exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
