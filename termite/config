@@ -13,9 +13,17 @@ search_wrap = true
 #geometry = 640x480
 
 ## FONTS
-font =  monospace 14
+#font = RobotoMono Nerd Font 14
+#font = Hack Nerd Font Mono 14
+#font = UbuntuMono Nerd Font 17
+#font = DejaVuSansMono Nerd Font 14
+#font = FuraCode Nerd Font 14
+#font = Inconsolatag Nerd Font 14
+#font = InconsolataLGC Nerd Font Mono 14
+#font = Input Mono 14
+#font = FuraCode Nerd Font Mono 14
+font = monospace 14
 
-## "system", "on" or "off"
 cursor_blink = system
 
 ## "block", "underline" or "ibeam"
