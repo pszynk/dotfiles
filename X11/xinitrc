@@ -34,8 +34,11 @@ fi
 xset -b
 setterm -blength 0
 
-# start one session of ssh agent per X session
-#eval $(ssh-agent) using gpg zsh plugin
+# Start GNOME Keyring (without SSH and GPG!)
+if [ -f /usr/bin/gnome-keyring-daemon ]; then
+    eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
+    export SSH_AUTH_SOCK
+fi
 
 # Reading default variables for X apps
 xrdb -merge ~/.Xdefaults

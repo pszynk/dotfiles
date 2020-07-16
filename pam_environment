@@ -5,9 +5,12 @@ XDG_CACHE_HOME      DEFAULT=@{HOME}/.cache
 XDG_CONFIG_HOME     DEFAULT=@{HOME}/.config
 XDG_DATA_HOME       DEFAULT=@{HOME}/.local/share
 
-
 # include
 LIB_INCLUDE_PATH    DEFAULT=@{HOME}/.local/include
 
 # system
 EDITOR=vim
+
+# GPG-agent (use as SSH-agent)
+SSH_AGENT_PID  DEFAULT=
+SSH_AUTH_SOCK  DEFAULT="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"

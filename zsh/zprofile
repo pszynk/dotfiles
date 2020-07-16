@@ -1,0 +1,5 @@
+## for keychain, but unsued (it there's ever a need for it...)
+#command -v keychain >/dev/null 2>&1 && \
+#    eval $(keychain --eval --quiet --agents ssh,gpg \
+#    $(for pub in ~/.ssh/keys/*.pub; do echo ${pub%.pub}; done) \
+#    6CF89E08F0F47191 D5FBF820A38154B6)

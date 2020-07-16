@@ -126,6 +126,11 @@ main_plugins=(
     'gpg'
 )
 
+# this should be set in ~/.pam_environment
+# SSH_AGENT_PID  DEFAULT=
+# SSH_AUTH_SOCK  DEFAULT="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+zstyle ':pszynk:plugins:gpg' set_ssh no
+
 # load my plugins
 load_pszynk $main_plugins
 
