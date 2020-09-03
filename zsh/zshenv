@@ -7,8 +7,8 @@ typeset -U PATH path
 path=($HOME/.local/share/bin $HOME/.yarn/bin $path[@])
 
 # TODO add this to plugin
-if [[ $+command[pyenv] -eq 1 ]]; then
-    path+=("$PYENV_ROOT/shims")
+if [[ $+commands[go] -eq 1 ]]; then
+  path+=("${$(go env GOBIN):-$(go env GOPATH)/bin}")
 fi
 
 # also set in custom set in .pam_environment

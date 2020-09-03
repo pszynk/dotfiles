@@ -76,6 +76,7 @@ function {
 #############
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/golang", from:oh-my-zsh
 
 #########
 # other #
@@ -92,7 +93,7 @@ zplug "djui/alias-tips", from:github, defer:3
 
 # zplug itself 
 # TODO (but i think it doesn't work)
-#zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # TODO check if worth
 #zplug hchbaw/zce zce # easy motion
@@ -186,6 +187,11 @@ CONDA="/etc/profile.d/conda.sh" && [[ -f "$CONDA" ]] && . "$CONDA"
 # emacs
 [[ $EMACS = t ]] && unsetopt zle
 
+# fzf and fd integration (use/create plugin?)
+
+export FZF_DEFAULT_COMMAND='fd --color=always --follow --hidden --exclude .git'
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 
 #-------------------------------
