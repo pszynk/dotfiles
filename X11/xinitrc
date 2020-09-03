@@ -43,6 +43,10 @@ fi
 # Reading default variables for X apps
 xrdb -merge ~/.Xdefaults
 
+# gnome-keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 function __launch_awesome {
     # so awesome execute command uses aliases
     # (with display manager exit /etc/X11/Xsession.d)
