@@ -32,8 +32,8 @@ let mapleader = " "
 
 "map ; : "i tak nie dziala
 "nnoremap ;; ;
-inoremap fd <Esc>
-vnoremap fd <Esc>
+inoremap jk <Esc>
+vnoremap jk <Esc>
 
 "przelaczanie miedzy plikami :b#
 nmap <silent> <Tab> :b#<CR>
