@@ -27,6 +27,9 @@
     cob = checkout -b
     # list branches sorted by last modified
     b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+    # remove merged local branches, omit current and master
+    # param - ripgrep patter (optional)
+    brm = "!git branch --merged | rg -v \"(\\*|master)\" | rg -v \"$1\" | xargs -r git branch -d"
 
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
