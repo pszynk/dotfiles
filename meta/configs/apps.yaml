@@ -4,19 +4,28 @@
         create: true
         relink: true
 - yay:
-    - fzf
-    - fd-rs
+    - autorandr
+    - bauerbill
+    - fasd
+    - fd
     - fpp-git
+    - fzf
+    - galnces
+    - pianobar
+    - powerpill
+    - ripgrep
+    - terminte
+    - topgrade
 
 - link:
     ~/.config/autorandr:
     ~/.config/bauerbill:
     ~/.config/fontconfig:
-    ~/.config/yay:
     ~/.config/pianobar/config:
         path: pianobar/config
         create: true
         relink: true
     ~/.config/powerpill:
     ~/.config/termite:
-    ~/.config/yaourt:
+    ~/.config/topgrade.toml:
+    ~/.config/yay:
