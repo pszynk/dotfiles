@@ -44,8 +44,8 @@ fi
 xrdb -merge ~/.Xdefaults
 
 # gnome-keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+#eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+#export SSH_AUTH_SOCK
 
 function __launch_awesome {
     # so awesome execute command uses aliases
