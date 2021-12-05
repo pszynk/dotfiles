@@ -1,8 +1,11 @@
 [user]
 	name = Paweł Szynkiewicz
 	email = sed s/x/pszynk/ <<< x@gmail.com
+#	email = pawel.szynkiewicz@nask.pl
 [push]
 	default = simple
+[init]
+	defaultBranch = master
 [rerere]
 	enabled = true
 	autoupdate = true
@@ -96,3 +99,5 @@
 	rebase = true
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
+[include]
+  path = ~/.gitconfig.local
