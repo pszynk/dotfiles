@@ -9,7 +9,7 @@ XDG_DATA_HOME       DEFAULT=@{HOME}/.local/share
 LIB_INCLUDE_PATH    DEFAULT=@{HOME}/.local/include
 
 # system
-EDITOR=vim
+EDITOR=nvim
 
 # GPG-agent (use as SSH-agent)
 SSH_AGENT_PID  DEFAULT=
