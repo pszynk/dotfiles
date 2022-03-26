@@ -1,0 +1,32 @@
+#################################
+###### Env vars for ZSH #########
+#################################
+
+export \
+    PATH=$PATH:$HOME/.local/share/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl
+export C_INCLUDE_PATH=/home/pawel/.local/include/:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/home/pawel/.local/include/:$CPLUS_INCLUDE_PATH
+export CXX_INCLUDE_PATH=/home/pawel/.local/include/:$CXX_INCLUDE_PATH
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export EDITOR=vim
+export DEFAULT_USER="pawel"
+
+export DEFAULT_VIM_SERVER="DEF_VVS_"
+export DEFAULT_GVIM_SERVER="DEF_GVS_"
+export CFG_VIM_SERVER="VIM_CFG_"
+
+#-------- Color {{{
+#------------------------------------------------------
+# color the manpages
+# tutorial video: http://www.youtube.com/watch?v=9BFaLAa428k
+export LESS_TERMCAP_mb=$'\E[00;34m'             # begin blinking
+export LESS_TERMCAP_md=$'\E[01;35m'             # begin bold
+export LESS_TERMCAP_me=$'\E[0m'                 # end mode
+export LESS_TERMCAP_se=$'\E[0m'                 # end standout-mode                 
+export LESS_TERMCAP_so=$'\E[01;42;30m'          # begin standout-mode - info box 
+export LESS_TERMCAP_ue=$'\E[0m'                 # end underline
+export LESS_TERMCAP_us=$'\E[00;36m'             # begin underline
+#}}}
+
+# vim: set foldmethod=marker

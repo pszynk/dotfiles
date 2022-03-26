@@ -1,0 +1,61 @@
+################################
+####### Aliases for ZSH ########
+################################
+
+## simple commands {{{
+alias e='exit'
+alias s='sudo'
+alias rm="echo Usuwanie przez rm zablokowane - rmi lub trash"
+alias rmi="'rm' -i"
+alias grep="grep -n --color=auto"
+alias tree="tree -C"
+alias vim="nvim"
+# }}}
+
+## cd {{{
+alias ...="cd ../.."
+alias ....="cd ../../.."
+## }}}
+
+## folders {{{
+alias documents='cd ~/Documents'
+alias downloads='cd ~/Downloads'
+alias desktop='cd ~/Desktop'
+alias music='cd ~/Music'
+alias videos='cd ~/Videos'
+## }}}
+
+## power control {{{
+alias shutdown='sudo shutdown -h now'
+#requires root password, disable it by "sudo chmod u+s /sbin/shutdown"
+alias reboot='sudo reboot'
+#requires root password, disable it by "sudo chmod u+s /sbin/shutdown"
+alias suspend='systemctl suspend'
+#alias lock='gnome-screensaver-command --lock'
+alias mounted='mount | column -t'
+## }}}
+
+## PROGRAMS {{{
+### ghci {{{
+alias ghci="ghci-color"
+### }}}
+### mymailx {{{
+alias mail="mymailx"
+alias mailx="mymailx"
+### }}}
+### tmux {{{
+#tmux 256 - colours
+alias tmux='tmux -2'
+### }}}
+## }}}
+
+## ssh {{{
+alias mion="ssh pszynkie@mion.elka.pw.edu.pl"
+alias gislogin="sudo ssh pszynkie@mion.elka.pw.edu.pl -L 80:berni.ire.pw.edu.pl:80"
+## }}}
+
+
+#alias disptvhome="xrandr --output VGA-0 --mode 1280x1024 --dpi 96 --right-of LVDS-0"
+#alias dispsvhome="xrandr --output VGA-0 --off --dpi 96"
+
+# vim: set foldmethod=marker
