@@ -2,5 +2,5 @@ ServerAliveCountMax 3
 ServerAliveInterval 240
 AddKeysToAgent yes
 
-Include local.conf
 Include conf.d/*.conf
+Include local.conf
