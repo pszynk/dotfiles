@@ -1,4 +1,60 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set easymotion
+set sneak
+set NERDTree
+set surround
+"set multiple-coursors
+set commentary
+set ReplaceWithRegister
+set argtextobj
+set exchange
+set textobj-entire
+set highlightedyank
+set vim-paragraph-motion " doesn't wokrk?
+set textobj-indent
+"set matchit " doesn't work with python
+set quickscope
+set which-key
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:argtextobj_pairs="[:],(:),<:>"
+
+" disable the timeout option
+set notimeout
+
+" increase the timeoutlen (default: 1000), don't add space around the equal sign
+set timeoutlen=5000
+
+let g:highlightedyank_highlight_duration = "500"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                          Idea specific settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Common settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set showmode
+
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+set nu
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Vim Behavior
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " change world (cw) z dolarem na koncu
@@ -14,29 +70,20 @@ set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
 set iskeyword-=-                    " '-' is an end of word designator
 
-set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-
 set visualbell
 set noerrorbells
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 Extentions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set surround
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = " "
 
+" Don't use Ex mode, use Q for formatting.
+"map Q gq
+
 "map ; : "i tak nie dziala
 "nnoremap ;; ;
 inoremap jk <Esc>
 vnoremap jk <Esc>
-
-"przelaczanie miedzy plikami :b#
-nmap <silent> <Tab> :b#<CR>
 
 " delete without yanking
 nnoremap <leader>d "_d
@@ -45,27 +92,68 @@ vnoremap <leader>d "_d
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
-map <leader>a :action $SelectAll<CR>
-map <leader>b :action GotoDeclaration<CR>
-map <leader>c :action $Copy<CR>
-map <leader>d :action EditorDuplicate<CR>
-map <leader>e :action RecentFiles<CR>
-map <leader>f :action Find<CR>
-map <leader>g :action GotoLine<CR>
-map <leader>h :action TypeHierarchy<CR>
-map <leader>i :action ImplementMethods<CR>
-map <leader>m :action EditorScrollToCenter<CR>
-map <leader>n :action FileChooser.NewFolder<CR>
-map <leader>o :action MethodHierarchy.OverrideMethodAction<CR>
-map <leader>p :action ParameterInfo<CR>
-map <leader>q :action GuiDesigner.QuickJavadoc<CR>
-map <leader>r :action Replace<CR>
-map <leader>s :action SaveAll<CR>
-map <leader>t :action Vcs.UpdateProject<CR>
-map <leader>u :action GotoSuperMethod<CR>
-map <leader>v :action $Paste<CR>
-map <leader>w :action EditorSelectWord<CR>
-map <leader>x :action $Cut<CR>
-map <leader>y :action EditorDeleteLine<CR>
-map <leader>[ :action EditorCodeBlockStart<CR>
-map <leader>] :action EditorCodeBlockEnd<CR>
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+
+map <leader>od <Action>(Debug)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+map <leader>tz <Action>(ToggleDistractionFreeMode)
+
+map <leader>oP :NERDTreeToggle<CR>
+map <leader>op :NERDTree<CR>
+
+map <leader>s <Action>(SelectInProjectView)
+map <leader>a <Action>(Annotate)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+map <S-Space> <Action>(GotoNextError)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+
+"map <leader>o <Action>(FileStructurePopup)
+map <leader><leader> <Action>(GotoFile)
+map <leader>pr <Action>(RecentFiles)
+map <leader>ot <Action>(ActivateTerminalToolWindow)
+map <leader>oT <Action>(Terminal.OpenInTerminal)
+
+" window
+map <leader>ws <Action>(SplitHorizontally)
+map <c-w>s <Action>(SplitHorizontally)w
+map <leader>wv <Action>(SplitVertically)
+map <c-w>v <Action>(SplitVertically)
+map <leader>wr <Action>(MoveEditorToOppositeTabGroup)
+map <c-w>r <Action>(MoveEditorToOppositeTabGroup)
+map <leader>wq <Action>(CloseAllEditors)
+map <c-w>q <Action>(CloseAllEditors)
+
+" tabs -> buffers
+map <leader>b[ <Action>(PreviousTab)
+map <leader>b] <Action>(NextTab)
+
+"toggle between last tabs :b#
+nmap <silent> <Tab> :b#<CR>
+
+"map <leader>a <Action>($SelectAll)
+"map <leader>b <Action>(GotoDeclaration)
+"map <leader>c <Action>($Copy)
+"map <leader>d <Action>(EditorDuplicate)
+"map <leader>e <Action>(RecentFiles)
+" map <leader>f <Action>(Find)
+"map <leader>g <Action>(GotoLine)
+"map <leader>h <Action>(TypeHierarchy)
+"map <leader>i <Action>(ImplementMethods)
+"map <leader>m <Action>(EditorScrollToCenter)
+"map <leader>n <Action>(FileChooser.NewFolder)
+"map <leader>o <Action>(MethodHierarchy.OverrideMethodAction)
+"map <leader>p <Action>(ParameterInfo)
+"map <leader>q <Action>(GuiDesigner.QuickJavadoc)
+"map <leader>r <Action>(Replace)
+"map <leader>s <Action>(SaveAll)
+"map <leader>t <Action>(Vcs.UpdateProject)
+"map <leader>u <Action>(GotoSuperMethod)
+"map <leader>v <Action>($Paste)
+"map <leader>w <Action>(EditorSelectWord)
+"map <leader>x <Action>($Cut)
+"map <leader>y <Action>(EditorDeleteLine)
+"map <leader>[ <Action>(EditorCodeBlockStart)
+"map <leader>] <Action>(EditorCodeBlockEnd)

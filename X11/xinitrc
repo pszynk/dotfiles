@@ -36,7 +36,7 @@ setterm -blength 0
 
 # Start GNOME Keyring (without SSH and GPG!)
 if [ -f /usr/bin/gnome-keyring-daemon ]; then
-    eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
+    eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)"
     export SSH_AUTH_SOCK
 fi
 
@@ -47,7 +47,7 @@ xrdb -merge ~/.Xdefaults
 #eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 #export SSH_AUTH_SOCK
 
-function __launch_awesome {
+__launch_awesome() {
     # so awesome execute command uses aliases
     # (with display manager exit /etc/X11/Xsession.d)
     #source ~/.config/zsh/plugin/core/core.plugin.zsh
@@ -63,14 +63,22 @@ function __launch_awesome {
     exec awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr
 }
 
-function __launch_i3 {
+__launch_i3() {
   exec i3
 }
 
+__launch_qtile() {
+  dex -a &
+  xss-lock -- sxlock -l -f '-misc-inconsolata-medium-r-normal--20-0-0-0-m-0-iso8859-2' &
+  exec qtile start
+}
+
 session=${1:-awesome}
+# session=${1:-qtile}
 
 case "$session" in
     awesome)    __launch_awesome;;
+    qtile)      __launch_qtile;;
     i3)         __launch_i3;;
     # No known session, try to run it as command
     *)          exec $1;;

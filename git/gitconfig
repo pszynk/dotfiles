@@ -2,7 +2,8 @@
   name = Paweł Szynkiewicz
   email = sed s/x/pszynk/ <<< x@gmail.com
 [push]
-  default = simple
+	default = simple
+	autoSetupRemote = yes
 [init]
   defaultBranch = master
 [core]
